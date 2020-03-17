@@ -119,17 +119,15 @@
 
 
 
-  <meta name="description" content="从感知机到神经网络原文发表在简书：https://www.jianshu.com/p/c844876c7e9a 由于是搭完博客才贴过来的，简书阅读体验可能更好。 一、感知机1.概念感知机(perceptron)是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别。 听起来复杂，但其实很简单，我们先来看一个感知机的例子：  本例中的感知机有三个输入信号：（当然，它可以有更多或者更少的输">
+  <meta name="description" content="从感知机到神经网络原文发表在简书：https://www.jianshu.com/p/c844876c7e9a 由于是搭完博客才贴过来的，简书阅读体验可能更好。 一、感知机1.概念感知机(perceptron)是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别。 听起来复杂，但其实很简单，我们先来看一个感知机的例子：  本例中的感知机有三个输入信号：$x_1, x_2, x_3$（">
 <meta name="keywords" content="神经网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从感知机到神经网络">
 <meta property="og:url" content="http://yoursite.com/2019/08/31/从感知机到神经网络/index.html">
 <meta property="og:site_name" content="BlueDaydream">
-<meta property="og:description" content="从感知机到神经网络原文发表在简书：https://www.jianshu.com/p/c844876c7e9a 由于是搭完博客才贴过来的，简书阅读体验可能更好。 一、感知机1.概念感知机(perceptron)是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别。 听起来复杂，但其实很简单，我们先来看一个感知机的例子：  本例中的感知机有三个输入信号：（当然，它可以有更多或者更少的输">
+<meta property="og:description" content="从感知机到神经网络原文发表在简书：https://www.jianshu.com/p/c844876c7e9a 由于是搭完博客才贴过来的，简书阅读体验可能更好。 一、感知机1.概念感知机(perceptron)是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别。 听起来复杂，但其实很简单，我们先来看一个感知机的例子：  本例中的感知机有三个输入信号：$x_1, x_2, x_3$（">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/1.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=x_1%2C%20x_2%2C%20x_3">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=w_1%2C%20w_2%2C%20w_3%0A">
 <meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C2.png">
 <meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C3.png">
 <meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C4.png">
@@ -148,8 +146,6 @@
 <meta property="og:image" content="http://yoursite.com/images/gzj17.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj18.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj19.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=y_1">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=y_2">
 <meta property="og:image" content="http://yoursite.com/images/gzj20.png">
 <meta property="og:image" content="https://math.jianshu.com/math?formula=y_k">
 <meta property="og:image" content="https://math.jianshu.com/math?formula=t_k">
@@ -157,69 +153,29 @@
 <meta property="og:image" content="http://yoursite.com/images/gzj21.png">
 <meta property="og:image" content="https://math.jianshu.com/math?formula=x_0%0A">
 <meta property="og:image" content="https://math.jianshu.com/math?formula=x_1%0A">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=x_0%0A">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=x_1%0A">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=x_0%0A">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=x_1">
 <meta property="og:image" content="http://yoursite.com/images/gzj22.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=x_0%20%3D%20x_0%20-%20%5Ceta%20%5Cfrac%7B%5Cvartheta%20f%7D%7B%5Cvartheta%20x_0%7D%20">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=x_1%20%3D%20x_1%20-%20%5Ceta%20%5Cfrac%7B%5Cvartheta%20f%7D%7B%5Cvartheta%20x_1%7D">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20w%7D%20">
 <meta property="og:image" content="http://yoursite.com/images/gzj23.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=f(x%2C%20y)%20%3D%20%5Cfrac%7B1%7D%7B20%7Dx%5E2%20%2B%20y%5E2">
 <meta property="og:image" content="http://yoursite.com/images/gzj24.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj25.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj26.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=W%20%5Cleftarrow%20%20%5Calpha%20%5Cnu%20%20-%20%5Ceta%20%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20">
 <meta property="og:image" content="http://yoursite.com/images/gzj27.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=h%20%5Cleftarrow%20%20h%20-%20%5Ceta%20%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20%20%5Codot%20%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20%20">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=W%20%5Cleftarrow%20%20W%20-%20%5Ceta%20%5Cfrac%7B1%7D%7B%5Csqrt%7Bh%7D%20%7D%20%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%20%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Codot%20">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%20%5Cfrac%7B1%7D%7B%5Csqrt%7Bh%7D%20%7D">
 <meta property="og:image" content="http://yoursite.com/images/gzj28.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj29.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj30.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj31.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B%5Csqrt%7Bn%7D%20%7D%20">
 <meta property="og:image" content="http://yoursite.com/images/gzj32.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B%5Csqrt%20%7Bn%7D%7D%20">
 <meta property="og:image" content="http://yoursite.com/images/gzj33.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj34.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cmu%20_B%20%5Cleftarrow%20%20%5Cfrac%20%7B1%7D%20%7Bm%7D%20%5Csum_%7Bi%3D1%7D%5Em%20x_i">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%7B%5Csigma%20_B%7D%5E2%20%5Cleftarrow%20%5Cfrac%20%7B1%7D%7Bm%7D%20%5Csum_%7Bi%20%3D%201%7D%5Em%20%7B(x_i%20-%20%5Cmu%20_B)%7D%5E2">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Chat%7Bx%7D%20_i%20%5Cleftarrow%20%5Cfrac%7Bx_i%20-%20%5Cmu_B%7D%7B%5Csqrt%7B%5Csigma_B%20%5E2%20%2B%20%5Cvarepsilon%20%7D%7D">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cmu%20_B">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%7B%5Csigma%20_B%7D%5E2%20">
 <meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cvarepsilon%20">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=y_i%3D%20%5Cgamma%20%5Chat%7Bx%7D%20_i%20%2B%20%5Cbeta">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cgamma%20">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cbeta%20">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cgamma%0A">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cbeta">
 <meta property="og:image" content="http://yoursite.com/images/%E5%B9%B2%E7%9D%80%E6%80%A55.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj36.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=W">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B2%7D%5Clambda%20W%5E2%0A">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B2%7D%5Clambda%20W%5E2">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B2%7D%5Clambda%20W%5E2">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B2%7D">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B2%7D%5Clambda%20W%5E2">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Clambda%20W">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=%5Clambda%20W">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=W%20%3D%20%EF%BC%88w_1%2C%20w_2%20...%20%2C%20w_n">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=L_2%20%3D%20%5Csqrt%20%7Bw_1%5E2%20%2B%20w_2%5E2%20%2B%20....%20%2B%20w_n%5E2%7D">
 <meta property="og:image" content="http://yoursite.com/images/gzj37.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj38.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj39.png">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=10%5E%7B-3%7D">
-<meta property="og:image" content="https://math.jianshu.com/math?formula=10%5E3">
-<meta property="og:updated_time" content="2020-03-17T01:24:58.014Z">
+<meta property="og:updated_time" content="2020-03-17T02:13:43.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从感知机到神经网络">
-<meta name="twitter:description" content="从感知机到神经网络原文发表在简书：https://www.jianshu.com/p/c844876c7e9a 由于是搭完博客才贴过来的，简书阅读体验可能更好。 一、感知机1.概念感知机(perceptron)是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别。 听起来复杂，但其实很简单，我们先来看一个感知机的例子：  本例中的感知机有三个输入信号：（当然，它可以有更多或者更少的输">
+<meta name="twitter:description" content="从感知机到神经网络原文发表在简书：https://www.jianshu.com/p/c844876c7e9a 由于是搭完博客才贴过来的，简书阅读体验可能更好。 一、感知机1.概念感知机(perceptron)是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别。 听起来复杂，但其实很简单，我们先来看一个感知机的例子：  本例中的感知机有三个输入信号：$x_1, x_2, x_3$（">
 <meta name="twitter:image" content="http://yoursite.com/images/1.png">
 
 
@@ -542,7 +498,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-17 09:24:58" itemprop="dateModified" datetime="2020-03-17T09:24:58+08:00">2020-03-17</time>
+                <time title="修改时间：2020-03-17 10:13:43" itemprop="dateModified" datetime="2020-03-17T10:13:43+08:00">2020-03-17</time>
               
             
           </span>
@@ -608,9 +564,9 @@
 <h2 id="一、感知机"><a href="#一、感知机" class="headerlink" title="一、感知机"></a>一、感知机</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念"></a>1.概念</h3><p>感知机(perceptron)是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别。</p>
 <p>听起来复杂，但其实很简单，我们先来看一个感知机的例子：</p>
 <p><img src="/images/1.png" alt="img"></p>
-<p>本例中的感知机有三个输入信号：<img src="https://math.jianshu.com/math?formula=x_1%2C%20x_2%2C%20x_3" alt="x_1, x_2, x_3">（当然，它可以有更多或者更少的输入），他们分别有一个权重: <img src="https://math.jianshu.com/math?formula=w_1%2C%20w_2%2C%20w_3%0A" alt="w_1, w_2, w_3"> , 图中的⚪被称为神经元或节点，输入信号被送往神经元时会被分别乘以固定的权重。神经元的输出是0还是1，由加权和  是否小于或者大于某一个阈值（threshold）决定的，这也被称为“神经元被激活”。</p>
+<p>本例中的感知机有三个输入信号：$x_1, x_2, x_3$（当然，它可以有更多或者更少的输入），他们分别有一个权重: $w_1, w_2, w_3$ , 图中的⚪被称为神经元或节点，输入信号被送往神经元时会被分别乘以固定的权重。神经元的输出是0还是1，由加权和  是否小于或者大于某一个阈值（threshold）决定的，这也被称为“神经元被激活”。</p>
 <p>用数学方法表示就是：</p>
-<p><img src="/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C2.png" alt></p>
+<p><img src="/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C2.png" alt="img"></p>
 <p>感知机的各个信号都有其固有的权重，这些权重来表示各个输入对于输出的重要程度，权重越大，对应权重信号的重要性就越高。</p>
 <p>利用单个感知机，我们可以轻松的模拟，与 和 或 两种运算，但对于异或运算，我们似乎束手无策。</p>
 <h3 id="2-单层感知机的局限性"><a href="#2-单层感知机的局限性" class="headerlink" title="2.单层感知机的局限性"></a>2.单层感知机的局限性</h3><p>异或运算：</p>
@@ -701,7 +657,7 @@
 <p>如图所示， softmax函数的输出通过箭头与所有的输入信号相连，输出层的各个神经元都受到所有输入信号的影响。</p>
 <p><img src="/images/gzj19.png" alt="img"></p>
 <h4 id="4-1-softmax函数的特征"><a href="#4-1-softmax函数的特征" class="headerlink" title="4.1 softmax函数的特征"></a>4.1 softmax函数的特征</h4><p>softmax函数的输出是0.0到1.0之间的实数。并且，softmax 函数的输出值的总和是1。输出总和为1是softmax函数的一个重要性质。正因为有了这个性质，我们才可以把softmax函数的输出解释为“概率”。</p>
-<p>假设上图的结果， <img src="https://math.jianshu.com/math?formula=y_1" alt="y_1">是0.245（24.5 %）， <img src="https://math.jianshu.com/math?formula=y_2" alt="y_2">是0.737（73.7%）。从概率的结果来看，我们可以说“因为第2个元素的概率最高，所以答案是第2个类别”，通过使用softmax函数，我们可以用概率的（统 计的）方法处理问题。</p>
+<p>假设上图的结果， $y_1$是0.245（24.5 %）， $y_2$是0.737（73.7%）。从概率的结果来看，我们可以说“因为第2个元素的概率最高，所以答案是第2个类别”，通过使用softmax函数，我们可以用概率的（统 计的）方法处理问题。</p>
 <p>显然，各输出之间的大小关系也不会发生改变，一般而言，神经网络只把输出值最大的神经元所对应的类别作为识别结果。</p>
 <h4 id="4-2-输出层神经元的数量"><a href="#4-2-输出层神经元的数量" class="headerlink" title="4.2 输出层神经元的数量"></a>4.2 输出层神经元的数量</h4><p>输出层的神经元数量需要根据待解决的问题来决定。对于分类问题，输出层的神经元数量一般设定为类别的数量。</p>
 <blockquote>
@@ -736,7 +692,7 @@
 <h4 id="3-2-数值微分的实现"><a href="#3-2-数值微分的实现" class="headerlink" title="3.2 数值微分的实现"></a>3.2 数值微分的实现</h4><p>利用微小的差分求导数的过程称为数值微分（numerical  differentiation）。而基于数学式的推导求导数的过程，则用“解析性”（analytic）一词，称为“解析性求解”或者“解析性求导”。比如， y = x2的导数，可以通过解析性地求解出来。因此，当x = 2时， y的导数为4。解析性求导得到的导数是不含误差的“真的导数”。</p>
 <p><img src="/images/gzj21.png" alt="img"></p>
 <h4 id="3-3-偏导数"><a href="#3-3-偏导数" class="headerlink" title="3.3 偏导数"></a>3.3 偏导数</h4><p>偏导数和单变量的导数一样，都是求某个地方的斜率。不过， 偏导数需要将多个变量中的某一个变量定为目标变量，并将其他变量固定为某个值。在上例的代码中，为了将目标变量以外的变量固定到某些特定的值 上，我们定义了新函数。然后，对新定义的函数应用了之前的求数值微分的 函数，得到偏导数。</p>
-<h3 id="4-梯度"><a href="#4-梯度" class="headerlink" title="4.梯度"></a>4.梯度</h3><p>在刚才的例子中，我们按变量分别计算了<img src="https://math.jianshu.com/math?formula=x_0%0A" alt="x_0">和<img src="https://math.jianshu.com/math?formula=x_1%0A" alt="x_1">的偏导数。现在，我们希望一起计算<img src="https://math.jianshu.com/math?formula=x_0%0A" alt="x_0">和<img src="https://math.jianshu.com/math?formula=x_1%0A" alt="x_1">的偏导数。比如，我们来考虑求<img src="https://math.jianshu.com/math?formula=x_0%0A" alt="x_0"> = 3,<img src="https://math.jianshu.com/math?formula=x_1" alt="x_1"> = 4时(x0,x 1) 的偏导数 ，由全部变量的偏导数汇总而成的向量称为梯度（gradient）。</p>
+<h3 id="4-梯度"><a href="#4-梯度" class="headerlink" title="4.梯度"></a>4.梯度</h3><p>在刚才的例子中，我们按变量分别计算了<img src="https://math.jianshu.com/math?formula=x_0%0A" alt="x_0">和<img src="https://math.jianshu.com/math?formula=x_1%0A" alt="x_1">的偏导数。现在，我们希望一起计算$x_1$和$x_1$的偏导数。比如，我们来考虑求 $x_0$= 3,$x_1$ = 4时(x0,x 1) 的偏导数 ，由全部变量的偏导数汇总而成的向量称为梯度（gradient）。</p>
 <p>如图所示$f(x_0 + x_1) = x_0^2 + x_1^2$的梯度呈现为有向向量（箭头），我们发现梯度指向函数的“最低处”（最小值），就像指南针 一样，所有的箭头都指向同一点。其次，我们发现离“最低处”越远，箭头越大。</p>
 <p><img src="/images/gzj22.png" alt="img"></p>
 <p>虽然图4-9中的梯度指向了最低处，但并非任何时候都这样。实际上， 梯度会指向各点处的函数值降低的方向。更严格地讲，梯度指示的方向 是各点处的函数值减小最多的方向。</p>
@@ -748,10 +704,11 @@
 </blockquote>
 <p>虽然梯度的方向并不一定指向最小值，但沿着它的方向能够最大限度地 减小函数的值，在梯度法中，函数的取值从当前位置沿着梯 度方向前进一定距离，然后在新的地方重新求梯度，再沿着新梯度方向前进， 如此反复，不断地沿梯度方向前进。</p>
 <p>严格地讲， 寻找最小值的梯度法称为<strong>梯度下降法</strong> ， 寻找最大值的梯度法称为<strong>梯度上升法，</strong>但是通过反转损失函数的符号，求最小值的问题和求最大值的问题会变成相同的问题。</p>
-<p><img src="https://math.jianshu.com/math?formula=x_0%20%3D%20x_0%20-%20%5Ceta%20%5Cfrac%7B%5Cvartheta%20f%7D%7B%5Cvartheta%20x_0%7D%20" alt="x_0 = x_0 - \eta \frac{\vartheta f}{\vartheta x_0} ">         <img src="https://math.jianshu.com/math?formula=x_1%20%3D%20x_1%20-%20%5Ceta%20%5Cfrac%7B%5Cvartheta%20f%7D%7B%5Cvartheta%20x_1%7D" alt="x_1 = x_1 - \eta \frac{\vartheta f}{\vartheta x_1}"></p>
+<p>$$x_0 = x_0 - \eta \frac{\vartheta f}{\vartheta x_0} $$</p>
+<p> $$x_1 = x_1 - \eta \frac{\vartheta f}{\vartheta x_1}$$</p>
 <p>η表示更新量，在神经网络的学习中，称为学习率。学习率决定在一次学习中，应该学习多少，以及在多大程度上更新参数。这个步骤会反复执行，也就是说，每 一步都按式（4.7）更新变量的值，通过反复执行此步骤，逐渐减小函数值。 </p>
 <p>学习率需要事先确定为某个值，比如0.01或0.001。一般而言，这个值过大或过小，都无法抵达一个“好的位置”。在神经网络的学习中，一般会 一边改变学习率的值，一边确认学习是否正确进行了。</p>
-<h4 id="4-2-神经网络的梯度"><a href="#4-2-神经网络的梯度" class="headerlink" title="4.2 神经网络的梯度"></a>4.2 神经网络的梯度</h4><p>神经网络的学习也要求梯度，这里所说的梯度是指损失函数关于权重参数的梯度。比如，有一个只有一个形状为2×3的权重W的神经网络，损失函数用L表示。此时，梯度可以用<img src="https://math.jianshu.com/math?formula=%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20w%7D%20" alt="\frac{\vartheta L}{\vartheta w} ">表示。</p>
+<h4 id="4-2-神经网络的梯度"><a href="#4-2-神经网络的梯度" class="headerlink" title="4.2 神经网络的梯度"></a>4.2 神经网络的梯度</h4><p>神经网络的学习也要求梯度，这里所说的梯度是指损失函数关于权重参数的梯度。比如，有一个只有一个形状为2×3的权重W的神经网络，损失函数用L表示。此时，梯度可以用$\frac{\vartheta L}{\vartheta w} $表示。</p>
 <p><img src="/images/gzj23.png" alt="img"></p>
 <p>然后我们用学习率乘以在相应位置上的梯度，更新权重。</p>
 <p>相比数值微分法求梯度， 使用误差反向传播法精度更高，和解析法是一致的。误差反向传播法是通过计算图实现的，假如有时间可以另行介绍。</p>
@@ -766,9 +723,9 @@
 <h3 id="1-参数的更新"><a href="#1-参数的更新" class="headerlink" title="1.参数的更新"></a>1.参数的更新</h3><p>神经网络的学习的目的是找到使损失函数的值尽可能小的参数。这是寻 找最优参数的问题，解决这个问题的过程称为最优化（optimization）。</p>
 <p>在之前，为了找到最优参数，我们将参数的梯度（导数）作为了线索。 使用参数的梯度，沿梯度方向更新参数，并重复这个步骤多次，从而逐渐靠 近最优参数，这个过程称为随机梯度下降法<strong>（SGD）。</strong>SGD是一个简单的方法，不过比起胡乱地搜索参数空间，也算是“聪 明”的方法。但是，根据不同的问题，也存在比SGD更加聪明的方法。</p>
 <h4 id="1-1-SGD"><a href="#1-1-SGD" class="headerlink" title="1.1 SGD"></a>1.1 SGD</h4><p>$$W \leftarrow  W - \eta \frac{\vartheta L}{\vartheta W} $$</p>
-<p>这里把需要更新的权重参数记为W，把损失函数关于W的梯度记为<img src="https://math.jianshu.com/math?formula=%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20" alt="\frac{\vartheta L}{\vartheta W} "> 。 η表示学习率，实际上会取0.01或0.001这些事先决定好的值。</p>
+<p>这里把需要更新的权重参数记为W，把损失函数关于W的梯度记为$\frac{\vartheta L}{\vartheta W} $。 η表示学习率，实际上会取0.01或0.001这些事先决定好的值。</p>
 <p>虽然SGD简单，并且容易实现，但是在解决某些问题时可能没有效率。 这里，在指出SGD的缺点之际，我们来思考一下求下面这个函数的最小值的问题:</p>
-<p><img src="https://math.jianshu.com/math?formula=f(x%2C%20y)%20%3D%20%5Cfrac%7B1%7D%7B20%7Dx%5E2%20%2B%20y%5E2" alt="f(x, y) = \frac{1}{20}x^2 + y^2"></p>
+<p>$$f(x, y) = \frac{1}{20}x^2 + y^2$$</p>
 <p><img src="/images/gzj24.png" alt="img"></p>
 <p>现在看一下这个函数的梯度。如果用图表示梯度的话，则如图所示，这个梯度的特征是，y轴方向上大，x轴方向上小。换句话说， 就是y轴方向的坡度大，而x轴方向的坡度小。这里需要注意的是，虽然式 （6.2）的最小值在(x,y) = (0, 0)处，但是图中的梯度在很多地方并没有指 向(0, 0)。</p>
 <p><img src="/images/gzj25.png" alt="img"></p>
@@ -776,15 +733,16 @@
 <p><img src="/images/gzj26.png" alt="img"></p>
 <p>所以接下来我们介绍几种优化后的方法，很多原理都比较复杂，大家可以自行查阅论文，这里主要是介绍。</p>
 <h4 id="1-2-Momentum"><a href="#1-2-Momentum" class="headerlink" title="1.2 Momentum"></a>1.2 Momentum</h4><p>Momentum是“动量”的意思，和物理有关。用数学式表示Momentum方 法，如下所示：</p>
-<p><img src="https://math.jianshu.com/math?formula=W%20%5Cleftarrow%20%20%5Calpha%20%5Cnu%20%20-%20%5Ceta%20%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20" alt="W \leftarrow  \alpha \nu  - \eta \frac{\vartheta L}{\vartheta W} "></p>
-<p>和前面的SGD一样，W表示要更新的权重参数， <img src="https://math.jianshu.com/math?formula=%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20" alt="\frac{\vartheta L}{\vartheta W} ">表示损失函数关 于W的梯度，η表示学习率。这里新出现了一个变量v，对应物理上的速度。这个公式表示了物体在梯度方向上的受力，在这个力的作用下，物体的速度增加这一物理法则。其中中有 αv这一项。在物体不受任何力时，该项承担使物体逐渐减速的任务（α设定为0.9之类的值），对应物理上的地面摩擦或空气阻力。</p>
+<p>$$W \leftarrow  \alpha \nu  - \eta \frac{\vartheta L}{\vartheta W} $$</p>
+<p>和前面的SGD一样，W表示要更新的权重参数， $\frac{\vartheta L}{\vartheta W} $表示损失函数关 于W的梯度，η表示学习率。这里新出现了一个变量v，对应物理上的速度。这个公式表示了物体在梯度方向上的受力，在这个力的作用下，物体的速度增加这一物理法则。其中中有 αv这一项。在物体不受任何力时，该项承担使物体逐渐减速的任务（α设定为0.9之类的值），对应物理上的地面摩擦或空气阻力。</p>
 <p><img src="/images/gzj27.png" alt="img"></p>
 <p>可以看到，当我们使用momentum优化时，更新路径就像小球在碗中滚动一样。和SGD相比，我们发现 “之”字形的“程度”减轻了。这是因为虽然x轴方向上受到的力非常小，但是因为一直在同一方向上受力，所以朝同一个方向会有一定的加速。反过来，虽然y轴方向上受到的力很大，但是因为交互地受到正方向和反方向的力，它们会互相抵消，所以y轴方向上的速度不稳定。</p>
 <h4 id="1-3-AdaGrad"><a href="#1-3-AdaGrad" class="headerlink" title="1.3 AdaGrad"></a>1.3 AdaGrad</h4><p>在神经网络的学习中，学习率（数学式中记为η）的值很重要。学习率过小， 会导致学习花费过多时间；反过来，学习率过大，则会导致学习发散而不能 正确进行。 </p>
 <p>在关于学习率的有效技巧中，有一种被称为学习率衰减（learning rate decay）的方法，即随着学习的进行，使学习率逐渐减小。实际上，一开始“多” 学，然后逐渐“少”学的方法，在神经网络的学习中经常被使用。 逐渐减小学习率的想法，相当于将“全体”参数的学习率值一起降低。 </p>
 <p>而AdaGrad 进一步发展了这个想法，针对“一个一个”的参数，赋予其“定制”的值。 AdaGrad会为参数的每个元素适当地调整学习率，与此同时进行学习 。下面，让我们用数学式表示AdaGrad的更新方法。</p>
-<p><img src="https://math.jianshu.com/math?formula=h%20%5Cleftarrow%20%20h%20-%20%5Ceta%20%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20%20%5Codot%20%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20%20" alt="h \leftarrow  h - \eta \frac{\vartheta L}{\vartheta W}  \odot \frac{\vartheta L}{\vartheta W}  ">        <img src="https://math.jianshu.com/math?formula=W%20%5Cleftarrow%20%20W%20-%20%5Ceta%20%5Cfrac%7B1%7D%7B%5Csqrt%7Bh%7D%20%7D%20%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20" alt="W \leftarrow  W - \eta \frac{1}{\sqrt{h} } \frac{\vartheta L}{\vartheta W} "></p>
-<p>和前面的SGD一样，W表示要更新的权重参数， <img src="https://math.jianshu.com/math?formula=%20%5Cfrac%7B%5Cvartheta%20L%7D%7B%5Cvartheta%20W%7D%20" alt=" \frac{\vartheta L}{\vartheta W} ">表示损失函数关 于W的梯度，η表示学习率。这里新出现了变量h，它保存了以前的所有梯度值的平方和, <img src="https://math.jianshu.com/math?formula=%5Codot%20" alt="\odot ">表示对应矩阵元素的乘法。 然后，在更新参数时，通过乘以<img src="https://math.jianshu.com/math?formula=%20%5Cfrac%7B1%7D%7B%5Csqrt%7Bh%7D%20%7D" alt=" \frac{1}{\sqrt{h} }"> ，就可以调整学习的尺度。这意味着， 参数的元素中变动较大（被大幅更新）的元素的学习率将变小。也就是说， 可以按参数的元素进行学习率衰减，使变动大的参数的学习率逐渐减小。</p>
+<p>$$h \leftarrow  h - \eta \frac{\vartheta L}{\vartheta W}  \odot \frac{\vartheta L}{\vartheta W}  $$</p>
+<p>$$W \leftarrow  W - \eta \frac{1}{\sqrt{h} } \frac{\vartheta L}{\vartheta W} $$</p>
+<p>和前面的SGD一样，W表示要更新的权重参数， $ \frac{\vartheta L}{\vartheta W} $表示损失函数关 于W的梯度，η表示学习率。这里新出现了变量h，它保存了以前的所有梯度值的平方和, $\odot$表示对应矩阵元素的乘法。 然后，在更新参数时，通过乘以$ \frac{1}{\sqrt{h} }$ ，就可以调整学习的尺度。这意味着， 参数的元素中变动较大（被大幅更新）的元素的学习率将变小。也就是说， 可以按参数的元素进行学习率衰减，使变动大的参数的学习率逐渐减小。</p>
 <blockquote>
 <p>AdaGrad会记录过去所有梯度的平方和。因此，学习越深入，更新的幅度就越小。实际上，如果无止境地学习，更新量就会变为0， 完全不再更新。为了改善这个问题，可以使用<strong>RMSProp</strong>方法。 RMSProp方法并不是将过去所有的梯度一视同仁地相加，而是逐渐 地遗忘过去的梯度，在做加法运算时将新梯度的信息更多地反映出来。 这种操作从专业上讲，称为“指数移动平均”，呈指数函数式地减小 过去的梯度的尺度。</p>
 </blockquote>
@@ -801,7 +759,7 @@
 <p>非常遗憾，目前并不存在能在所有问题中都表现良好 的方法。这4种方法各有各的特点，都有各自擅长解决的问题和不擅长解决的问题。 很多研究中至今仍在使用SGD。Momentum和AdaGrad也是值得一试的方法，最近也很多研究人员和技术人员都喜欢用Adam。</p>
 <h3 id="2-权重的初始值"><a href="#2-权重的初始值" class="headerlink" title="2. 权重的初始值"></a>2. 权重的初始值</h3><p>在神经网络的学习中，权重的初始值特别重要。实际上，设定什么样的 权重初始值，经常关系到神经网络的学习能否成功。</p>
 <p>后面我们会介绍抑制过拟合、提高泛化能力的技巧——权值衰减（weight decay）。简单地说，权值衰减就是一种以减小权重参数的值为目的进行学习的方法。通过减小权重参数的值来抑制过拟合的发生。 </p>
-<p>如果想减小权重的值，一开始就将初始值设为较小的值才是正途。实际上， 在这之前的权重初始值都是像0.01 * np.random.randn(10, 100)这样，使用由高斯分布生成的值乘以0.01后得到的值（标准差为0.01的高斯分布）。</p>
+<p>如果想减小权重的值，一开始就将初始值设为较小的值才是正途。实际上， 在这之前的权重初始值都是像$0.01 * np.random.randn(10, 100)$这样，使用由高斯分布生成的值乘以0.01后得到的值（标准差为0.01的高斯分布）。</p>
 <p>如果我们把权重初始值全部设为0以减小权重的值，会怎么样呢？从结论来说，将权重初始值设为0不是一个好主意。事实上，将权重初始值设为0的话，将无法正确进行学习。</p>
 <p>这是因为在误差反向传播法中，所有的权重值都会进行相同的更新。比如，在2层神经网络中，假设第1层和第2层的权重为0。这样一来，正向传播时，因为输入层的权重为0，所以第2层的神经元全部会被传递相同的值。第2层的神经元中全部输入相同的值，这意味着反向传播时第2层的权重全部都会进行相同的更新。因此，权重被更新为相同的值，并拥有了重复的值。 这使得神经网络拥有许多不同的权重的意义丧失了。为了防止“权重均一化” ，必须随机生成初始值。</p>
 <p>接下来我们来看看权重的初值是如何影响隐藏层的激活值的分布的：</p>
@@ -811,12 +769,12 @@
 <p><img src="/images/gzj31.png" alt="img"></p>
 <p>这次呈集中在0.5附近的分布，因为不像刚才的例子那样偏向0和1，所以不会发生梯度消失的问题。但是，激活值的分布有所偏向，说明在表现力 上会有很大问题。为什么这么说呢？</p>
 <p>因为如果有多个神经元都输出几乎相同 的值，那它们就没有存在的意义了。比如，如果100个神经元都输出几乎相同的值，那么也可以由1个神经元来表达基本相同的事情。因此，激活值在 分布上有所偏向会出现“表现力受限”的问题。</p>
-<h4 id="2-1-Xavier初始值"><a href="#2-1-Xavier初始值" class="headerlink" title="2.1 Xavier初始值"></a>2.1 Xavier初始值</h4><p>Xavier的论文中，为了使各层的激活值呈现出具有相同广度的分布，推导了合适的权重尺度。推导出的结论是，如果前一层的节点数为n，则初始 值使用标准差为<img src="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B%5Csqrt%7Bn%7D%20%7D%20" alt="\frac{1}{\sqrt{n} } ">的分布。使用Xavier初始值后，前一层的节点数越多，要设定为目标节点的初始值的权重尺度就越小。</p>
+<h4 id="2-1-Xavier初始值"><a href="#2-1-Xavier初始值" class="headerlink" title="2.1 Xavier初始值"></a>2.1 Xavier初始值</h4><p>Xavier的论文中，为了使各层的激活值呈现出具有相同广度的分布，推导了合适的权重尺度。推导出的结论是，如果前一层的节点数为n，则初始 值使用标准差为$\frac{1}{\sqrt{n} } $的分布。使用Xavier初始值后，前一层的节点数越多，要设定为目标节点的初始值的权重尺度就越小。</p>
 <p><img src="/images/gzj32.png" alt="img"></p>
 <p>使用Xavier初始值后的结果如图6-13所示。从这个结果可知，越是后面的层，图像变得越歪斜，但是呈现了比之前更有广度的分布。因为各层间传递的数据有适当的广度，所以sigmoid函数的表现力不受限制，有望进行高效的学习。</p>
 <p>想了解Xavier初始值是如何推导的，可以看我在网上看到的这篇文章：<a href="https://www.cnblogs.com/hejunlin1992/p/8723816.html" target="_blank" rel="noopener">深度学习中Xavier初始化</a></p>
 <h4 id="2-2-ReLu初始值"><a href="#2-2-ReLu初始值" class="headerlink" title="2.2 ReLu初始值"></a>2.2 ReLu初始值</h4><p>Xavier初始值是以激活函数是线性函数为前提而推导出来的。因为 sigmoid函数和tanh函数左右对称，且中央附近可以视作斜率为1的线性函数，所以适用于Xavier函数。</p>
-<p>但当激活函数使用ReLu时，一般推荐使用“He初始值”，即当前一层的节点数为n时，He初始值使用标准差为<img src="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B%5Csqrt%20%7Bn%7D%7D%20" alt="\frac{1}{\sqrt {n}} ">的高斯分布。当 Xavier初始值是 时，（直观上）可以解释为，因为ReLU的负值区域的值 为0，为了使它更有广度，所以需要2倍的系数。</p>
+<p>但当激活函数使用ReLu时，一般推荐使用“He初始值”，即当前一层的节点数为n时，He初始值使用标准差为$ \frac{2}{\sqrt {n}} $的高斯分布。当 Xavier初始值是 时，（直观上）可以解释为，因为ReLU的负值区域的值 为0，为了使它更有广度，所以需要2倍的系数。</p>
 <p>接下来我们看看三种情况下的实验结果：</p>
 <p><img src="/images/gzj33.png" alt="img"></p>
 <p>观察实验结果可知，当“std = 0.01”时，各层的激活值非常小。神经网络上传递的是非常小的值，说明逆向传播时权重的梯度也同样很小，学习基本没有进展。</p>
@@ -830,11 +788,11 @@
 <p>Batch Norm的思路是调整各层的激活值分布使其拥有适当 的广度。为此，要向神经网络中插入对数据分布进行正规化的层，即Batch Normalization层。</p>
 <p><img src="/images/gzj34.png" alt="img"></p>
 <p>Batch Norm，顾名思义，以进行学习时的mini-batch为单位，按mini-batch进行正规化。具体而言，就是进行使数据分布的均值为0、方差为1的正规化。用数学式表示的话，如下所示:</p>
-<p><img src="https://math.jianshu.com/math?formula=%5Cmu%20_B%20%5Cleftarrow%20%20%5Cfrac%20%7B1%7D%20%7Bm%7D%20%5Csum_%7Bi%3D1%7D%5Em%20x_i" alt="\mu _B \leftarrow  \frac {1} {m} \sum_{i=1}^m x_i">         <img src="https://math.jianshu.com/math?formula=%7B%5Csigma%20_B%7D%5E2%20%5Cleftarrow%20%5Cfrac%20%7B1%7D%7Bm%7D%20%5Csum_%7Bi%20%3D%201%7D%5Em%20%7B(x_i%20-%20%5Cmu%20_B)%7D%5E2" alt="{\sigma _B}^2 \leftarrow \frac {1}{m} \sum_{i = 1}^m {(x_i - \mu _B)}^2">          <img src="https://math.jianshu.com/math?formula=%5Chat%7Bx%7D%20_i%20%5Cleftarrow%20%5Cfrac%7Bx_i%20-%20%5Cmu_B%7D%7B%5Csqrt%7B%5Csigma_B%20%5E2%20%2B%20%5Cvarepsilon%20%7D%7D" alt="\hat{x} _i \leftarrow \frac{x_i - \mu_B}{\sqrt{\sigma_B ^2 + \varepsilon }}"></p>
-<p>这里对mini-batch的m个输入数据的集合B ={x1,x2,…,xm}求均值 <img src="https://math.jianshu.com/math?formula=%5Cmu%20_B" alt="\mu _B">和方差<img src="https://math.jianshu.com/math?formula=%7B%5Csigma%20_B%7D%5E2%20" alt="{\sigma _B}^2 "> 。然后，对输入数据进行均值为0、方差为1（合适的分布）的正规化。式子中的<img src="https://math.jianshu.com/math?formula=%5Cvarepsilon%20" alt="\varepsilon ">是一个微小值（比如，10e-7等），它是为了防止出现除以0的情况。</p>
+<p>$$\mu <em>B \leftarrow  \frac {1} {m} \sum</em>{i=1}^m x_i$$         $${\sigma <em>B}^2 \leftarrow \frac {1}{m} \sum</em>{i = 1}^m {(x_i - \mu _B)}^2$$)    $$\hat{x} _i \leftarrow \frac{x_i - \mu_B}{\sqrt{\sigma_B ^2 + \varepsilon }}$$</p>
+<p>这里对mini-batch的m个输入数据的集合B ={x1,x2,…,xm}求均值 $\mu _B$和方差${\sigma _B}^2 $ 。然后，对输入数据进行均值为0、方差为1（合适的分布）的正规化。式子中的<img src="https://math.jianshu.com/math?formula=%5Cvarepsilon%20" alt="\varepsilon ">是一个微小值（比如，10e-7等），它是为了防止出现除以0的情况。</p>
 <p>接着，Batch Norm层会对正规化后的数据进行缩放和平移的变换，用数学式可以如下表示：</p>
-<p><img src="https://math.jianshu.com/math?formula=y_i%3D%20%5Cgamma%20%5Chat%7Bx%7D%20_i%20%2B%20%5Cbeta" alt="y_i= \gamma \hat{x} _i + \beta"></p>
-<p>这里，<img src="https://math.jianshu.com/math?formula=%5Cgamma%20" alt="\gamma ">和<img src="https://math.jianshu.com/math?formula=%5Cbeta%20" alt="\beta ">是参数。一开始<img src="https://math.jianshu.com/math?formula=%5Cgamma%0A" alt="\gamma"> = 1，<img src="https://math.jianshu.com/math?formula=%5Cbeta" alt="\beta"> = 0，然后再通过学习调整到合适的值。 </p>
+<p>$$y_i= \gamma \hat{x} _i + \beta$$</p>
+<p>这里，$\gamma $和$\beta$是参数。一开始$\gamma$ = 1，$\beta$ = 0，然后再通过学习调整到合适的值。 </p>
 <p><img src="/images/%E5%B9%B2%E7%9D%80%E6%80%A55.png" alt="img"></p>
 <p>几乎所有的情况下都是使用Batch Norm时学习进行得更快。 同时也可以发现，在不使用Batch Norm的情况下，如果不赋予一个尺度好的初始值，学习将完全无法进行。通过使用Batch Norm，可以推动学习的进行；并且，神经网络对权重初始值变得健壮。</p>
 <h3 id="4-正则化"><a href="#4-正则化" class="headerlink" title="4.正则化"></a>4.正则化</h3><p>机器学习的问题中，<strong>过拟合</strong>是一个很常见的问题。过拟合指的是只能拟合训练数据，但不能很好地拟合不包含在训练数据中的其他数据的状态。所以，抑制过拟合的技巧很重要。</p>
@@ -843,9 +801,9 @@
 <p> • 训练数据少。</p>
 <p><img src="/images/gzj36.png" alt="img"></p>
 <h4 id="4-1-权值衰减"><a href="#4-1-权值衰减" class="headerlink" title="4.1 权值衰减"></a>4.1 权值衰减</h4><p>权值衰减是一直以来经常被使用的一种抑制过拟合的方法。该方法通过在学习的过程中对大的权重进行惩罚，来抑制过拟合。很多过拟合原本就是因为权重参数取值过大才发生的。 </p>
-<p>神经网络的学习目的是减小损失函数的值。这时，例如为损失函数加上权重的平方范数（L2范数）。这样一来，就可以抑制权重变大。 用符号表示的话，如果将权重记为<img src="https://math.jianshu.com/math?formula=W" alt="W">，L2范数的权值衰减就是<img src="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B2%7D%5Clambda%20W%5E2%0A" alt="\frac{1}{2}\lambda W^2"> ，然 后将这个<img src="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B2%7D%5Clambda%20W%5E2" alt="\frac{1}{2}\lambda W^2">加到损失函数上。这里，λ是控制正则化强度的超参数。λ 设置得越大，对大的权重施加的惩罚就越重。此外，<img src="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B2%7D%5Clambda%20W%5E2" alt="\frac{1}{2}\lambda W^2">开头的<img src="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B2%7D" alt="\frac{1}{2}">是用于将<img src="https://math.jianshu.com/math?formula=%5Cfrac%7B1%7D%7B2%7D%5Clambda%20W%5E2" alt="\frac{1}{2}\lambda W^2">的求导结果变成<img src="https://math.jianshu.com/math?formula=%5Clambda%20W" alt="\lambda W">的调整用常量。 对于所有权重，权值衰减方法都会为损失函数加上 。因此，在求权 重梯度的计算中，要为之前的误差反向传播法的结果加上正则化项的导数<img src="https://math.jianshu.com/math?formula=%5Clambda%20W" alt="\lambda W">。</p>
+<p>神经网络的学习目的是减小损失函数的值。这时，例如为损失函数加上权重的平方范数（L2范数）。这样一来，就可以抑制权重变大。 用符号表示的话，如果将权重记为$W$，L2范数的权值衰减就是$\frac{1}{2}\lambda W^2$ ，然 后将这个$\frac{1}{2}\lambda W^2$加到损失函数上。这里，λ是控制正则化强度的超参数。λ 设置得越大，对大的权重施加的惩罚就越重。此外，$\frac{1}{2}\lambda W^2$开头的$\frac{1}{2}$是用于将$\frac{1}{2}\lambda W^2$的求导结果变成$\lambda W$的调整用常量。 对于所有权重，权值衰减方法都会为损失函数加上 。因此，在求权 重梯度的计算中，要为之前的误差反向传播法的结果加上正则化项的导数$\lambda W$。</p>
 <blockquote>
-<p>L2范数相当于各个元素的平方和。用数学式表示的话，假设有权重 <img src="https://math.jianshu.com/math?formula=W%20%3D%20%EF%BC%88w_1%2C%20w_2%20...%20%2C%20w_n" alt="W = （w_1, w_2 ... , w_n)">)，则L2范数可用<img src="https://math.jianshu.com/math?formula=L_2%20%3D%20%5Csqrt%20%7Bw_1%5E2%20%2B%20w_2%5E2%20%2B%20....%20%2B%20w_n%5E2%7D" alt="L_2 = \sqrt {w_1^2 + w_2^2 + .... + w_n^2}">计算出来。</p>
+<p>L2范数相当于各个元素的平方和。用数学式表示的话，假设有权重 $W = （w_1, w_2 … , w_n)$，则L2范数可用$L_2 = \sqrt {w_1^2 + w_2^2 + …. + w_n^2}$计算出来。</p>
 </blockquote>
 <p><img src="/images/gzj37.png" alt="img"></p>
 <h4 id="4-2-Dropout"><a href="#4-2-Dropout" class="headerlink" title="4.2 Dropout"></a>4.2 Dropout</h4><p>作为抑制过拟合的方法，前面我们介绍了为损失函数加上权重的L2范数的权值衰减方法。该方法可以简单地实现，在某种程度上能够抑制过拟合。但是，如果网络的模型变得很复杂，只用权值衰减就难以应对了。</p>
@@ -860,7 +818,7 @@
 <h4 id="4-3-超参数验证"><a href="#4-3-超参数验证" class="headerlink" title="4.3 超参数验证"></a>4.3 超参数验证</h4><p>神经网络中，除了权重和偏置等参数，超参数（hyper-parameter）也经常出现。这里所说的超参数是指，比如各层的神经元数量、batch大小、参数更新时的学习率或权值衰减等。如果这些超参数没有设置合适的值，模型的性能就会很差。</p>
 <p>之前我们使用的数据集分成了训练数据和测试数据，训练数据用于学习， 测试数据用于评估泛化能力。调整超参数时，必须使用超参数专用的确认数据。用于调整超参数的数据，一般称为验证数据（validation data）。我们使用这个验证数据来 评估超参数的好坏。</p>
 <p>进行超参数的最优化时，逐渐缩小超参数的“好值”的存在范围非常重要。 所谓逐渐缩小范围，是指一开始先大致设定一个范围，从这个范围中随机选 出一个超参数（采样），用这个采样到的值进行识别精度的评估；然后，多次重复该操作，观察识别精度的结果，根据这个结果缩小超参数的“好值”的范围。 通过重复这一操作，就可以逐渐确定超参数的合适范围。</p>
-<p>超参数的范围只要“大致地指定”就可以了，也就是像0.001（<img src="https://math.jianshu.com/math?formula=10%5E%7B-3%7D" alt="10^{-3}">）到 1000（<img src="https://math.jianshu.com/math?formula=10%5E3" alt="10^3">）这样，以“ 10的阶乘”的尺度指定范围。 </p>
+<p>超参数的范围只要“大致地指定”就可以了，也就是像0.001（$10^{-3}$）到 1000（$10^{3}$）这样，以“ 10的阶乘”的尺度指定范围。 </p>
 <p>在超参数的最优化中，要注意的是深度学习需要很长时间（比如，几天或几周）。因此，在超参数的搜索中，需要尽早放弃那些不符合逻辑的超参数。 在最优化中，减少学习的epoch，缩短一次评估所需的时间 是一个不错的办法。 简单归纳一下，如下所示:</p>
 <p><strong>步骤0</strong>     <strong>设定超参数的范围。</strong></p>
 <p><strong>步骤1</strong>     <strong>从设定的超参数范围中随机采样。</strong></p>
