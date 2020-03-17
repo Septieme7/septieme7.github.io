@@ -128,14 +128,14 @@
 <meta property="og:description" content="从感知机到神经网络原文发表在简书：https://www.jianshu.com/p/c844876c7e9a 由于是搭完博客才贴过来的，简书阅读体验可能更好。 一、感知机1.概念感知机(perceptron)是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别。 听起来复杂，但其实很简单，我们先来看一个感知机的例子：  本例中的感知机有三个输入信号：$x_1, x_2, x_3$（">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/1.png">
-<meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C2.png">
-<meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C3.png">
-<meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C4.png">
-<meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C6.png">
-<meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C5.png">
-<meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C7.png">
-<meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C8.png">
-<meta property="og:image" content="http://yoursite.com/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C9.png">
+<meta property="og:image" content="http://yoursite.com/images/感知机到神经网络2.png">
+<meta property="og:image" content="http://yoursite.com/images/感知机到神经网络3.png">
+<meta property="og:image" content="http://yoursite.com/images/感知机到神经网络4.png">
+<meta property="og:image" content="http://yoursite.com/images/感知机到神经网络6.png">
+<meta property="og:image" content="http://yoursite.com/images/感知机到神经网络5.png">
+<meta property="og:image" content="http://yoursite.com/images/感知机到神经网络7.png">
+<meta property="og:image" content="http://yoursite.com/images/感知机到神经网络8.png">
+<meta property="og:image" content="http://yoursite.com/images/感知机到神经网络9.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj10.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj1.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj12.png">
@@ -167,7 +167,7 @@
 <meta property="og:image" content="http://yoursite.com/images/gzj33.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj34.png">
 <meta property="og:image" content="https://math.jianshu.com/math?formula=%5Cvarepsilon%20">
-<meta property="og:image" content="http://yoursite.com/images/%E5%B9%B2%E7%9D%80%E6%80%A55.png">
+<meta property="og:image" content="http://yoursite.com/images/干着急5.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj36.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj37.png">
 <meta property="og:image" content="http://yoursite.com/images/gzj38.png">
@@ -566,27 +566,27 @@
 <p><img src="/images/1.png" alt="img"></p>
 <p>本例中的感知机有三个输入信号：$x_1, x_2, x_3$（当然，它可以有更多或者更少的输入），他们分别有一个权重: $w_1, w_2, w_3$ , 图中的⚪被称为神经元或节点，输入信号被送往神经元时会被分别乘以固定的权重。神经元的输出是0还是1，由加权和  是否小于或者大于某一个阈值（threshold）决定的，这也被称为“神经元被激活”。</p>
 <p>用数学方法表示就是：</p>
-<p><img src="/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C2.png" alt="img"></p>
+<p><img src="/images/感知机到神经网络2.png" alt="img"></p>
 <p>感知机的各个信号都有其固有的权重，这些权重来表示各个输入对于输出的重要程度，权重越大，对应权重信号的重要性就越高。</p>
 <p>利用单个感知机，我们可以轻松的模拟，与 和 或 两种运算，但对于异或运算，我们似乎束手无策。</p>
 <h3 id="2-单层感知机的局限性"><a href="#2-单层感知机的局限性" class="headerlink" title="2.单层感知机的局限性"></a>2.单层感知机的局限性</h3><p>异或运算：</p>
-<p><img src="/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C3.png" alt="img"></p>
+<p><img src="/images/感知机到神经网络3.png" alt="img"></p>
 <p>思考一下，有没有办法使用单个感知机进行异或运算呢？</p>
 <p>好像真的不行….</p>
 <p>但这是为什么呢，我们先来看看或运算的数学图像：</p>
-<p><img src="/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C4.png" alt="img"></p>
+<p><img src="/images/感知机到神经网络4.png" alt="img"></p>
 <p>这是这个或门数学公式的图像化表示，阴影区域代表输出0，非阴影区域代表输出1，三角和圆圈分别代表和。</p>
 <p>但我们要是用数学图像表示异或运算呢？</p>
-<p><img src="/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C6.png" alt="img"></p>
+<p><img src="/images/感知机到神经网络6.png" alt="img"></p>
 <p>通过异或门的图像化表示，我们发现，这些结果并不按套路出牌，它们的位置无法用一条直线分割成两类。</p>
 <p>也可以说：异或运算是非线性的（线性与非线性在机器学习领域很常见）。</p>
 <p>通过观察感知机的数学公式，我们知道上面的感知机只能被画成直线；但要想正确把异或门的结果分开，必须使用曲线。</p>
 <p>上过计组的大家一定都知道，其实仅使用与门和或门是可以实现所有电路的，所以：</p>
-<p><img src="/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C5.png" alt="img"></p>
+<p><img src="/images/感知机到神经网络5.png" alt="img"></p>
 <p>没错，这就是异或门，不信咱们用真值表验证一下：</p>
-<p><img src="/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C7.png" alt="img"></p>
+<p><img src="/images/感知机到神经网络7.png" alt="img"></p>
 <p>所以，异或对应的多层感知机已经呼之欲出：</p>
-<p><img src="/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C8.png" alt="img"></p>
+<p><img src="/images/感知机到神经网络8.png" alt="img"></p>
 <p>图中的感知机总共由3层构成，但是因为拥有权重的层实际上只有2层（第0层和第1层之间，第1层和第2层之间）所以被称为“2层感知机”，不过也有人称其为“3层感知机”。</p>
 <p>通过这样的双层结构，感知机得以实现异或门，这可以解释为“单层感知机无法解决的问题， 可以通过增加一层感知机来解决”。也就是说，通过叠加层（加深层），感知机能进行更加灵活的表示。</p>
 <h3 id="3-多层感知机"><a href="#3-多层感知机" class="headerlink" title="3.多层感知机"></a>3.多层感知机</h3><p>多层感知机可以实现比之前见到的电路更复杂的电路，比如进行加法运算的加法器也可以使用感知机实现（如计组实现过的那样），编码器等也可以通过感知机实现，其实，用感知机甚至可以表现计算机。</p>
@@ -594,26 +594,22 @@
 <h3 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h3><p>可以说，感知机是神经网络的基础，所以，对于感知机的理解十分重要。</p>
 <h2 id="二、神经网络"><a href="#二、神经网络" class="headerlink" title="二、神经网络"></a>二、神经网络</h2><h3 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h3><p>通过对感知机的学习，我们知道，即便对于复杂的函数，感知机也隐含着能够表示他的可能性，但是，设定权重的工作，即确定合适的、能符合预期的输入与输出的权重，还是由人工进行的。</p>
 <p>神经网络和感知机有很多的共同点，我们先以他们的差异为中心，来介绍神经网络的结构：</p>
-<p><img src="/images/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%88%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C9.png" alt="img"></p>
+<p><img src="/images/感知机到神经网络9.png" alt="img"></p>
 <p>图中就是一个简单的神经网络，其中的“中间层”有时也被称为“隐藏层”。我们也可以用第0层代表输入层，第1层代表中间层（隐藏层），第2层代表输出层。</p>
 <p>再进一步深入以前，我们先再简单回顾一下感知机：</p>
 <p>对于一个简单的双输入感知机，存在公式</p>
-<p>$$\begin{eqnarray} \mbox{output} &amp; = &amp; \left{ \begin{array}{ll} 0 &amp; \mbox{if } \ w_1<em>x_1 + w_2</em>x_2 + b  \leq \mbox{ 0} \ 1 &amp; \mbox{if } \ w_1<em>x_1 + w_2</em>x_2 + b &gt;  \mbox{ 0} \end{array} \right. \end{eqnarray}$$</p>
-<p>b就是阈值，也可以称为偏置的参数，用于控制神经元被激活的容易程度；是表示各个信号重要程度的参数，用于控制各个信号的重要性。</p>
+<script type="math/tex; mode=display">\begin{eqnarray} \mbox{output} & = & \left\{ \begin{array}{ll} 0 & \mbox{if } \ w_1*x_1 + w_2*x_2 + b  \leq \mbox{ 0} \\ 1 & \mbox{if } \ w_1*x_1 + w_2*x_2 + b >  \mbox{ 0} \end{array} \right. \end{eqnarray}</script><p>b就是阈值，也可以称为偏置的参数，用于控制神经元被激活的容易程度；是表示各个信号重要程度的参数，用于控制各个信号的重要性。</p>
 <p>在之前的感知机图像中，我们并没有将b明确的画出来，如果想要表示它，我们可以这样做：</p>
 <p><img src="/images/gzj10.png" alt="img"></p>
 <p>对于之前的公式，我们可引入新函数，将其改写为：</p>
-<p>$$y = h * (b + w_1 * x_1 + w_2 * x_ 2)$$</p>
-<p>$$\begin{eqnarray} \mbox{h(x)} &amp; = &amp; \left{ \begin{array}{ll} 0 &amp; \mbox{if } \ x \leq \mbox{0} \ 1 &amp; \mbox{if} \ \ x  &gt;  \mbox{0} \end{array} \right. \end{eqnarray}$$</p>
-<h3 id="2-激活函数"><a href="#2-激活函数" class="headerlink" title="2.激活函数"></a>2.激活函数</h3><p>刚刚出现的函数会将输入信号的加权综合转换为输出信号，这种函数一般被称为<strong>激活函数</strong>，激活函数的作用在于决定如何来激活输入信号的总和。</p>
+<script type="math/tex; mode=display">y = h * (b + w_1 * x_1 + w_2 * x_ 2)</script><script type="math/tex; mode=display">\begin{eqnarray} \mbox{h(x)} & = & \left\{ \begin{array}{ll} 0 & \mbox{if } \ x \leq \mbox{0} \\ 1 & \mbox{if} \ \ x  >  \mbox{0} \end{array} \right. \end{eqnarray}</script><h3 id="2-激活函数"><a href="#2-激活函数" class="headerlink" title="2.激活函数"></a>2.激活函数</h3><p>刚刚出现的函数会将输入信号的加权综合转换为输出信号，这种函数一般被称为<strong>激活函数</strong>，激活函数的作用在于决定如何来激活输入信号的总和。</p>
 <p>在之前已经认识了激活函数家族的第一个成员：像实现与门或门的函数这样的，以阈值为界，一旦输入超过阈值，就切换输出的函数被称为“阶跃函数”。</p>
 <p>因此，可以说感知机中使用了阶跃函数作为激活函数，那么，如果感知机使用其他函数作为激活函数的话会怎么样呢？实际上，如果将激活函数从阶跃函数换成其他函数，就可以进入神经网络的世界了。</p>
 <p>就像下面这样：</p>
 <p><img src="/images/gzj1.png" alt="img"></p>
 <p>如图2-3所示，表示神经元的⚪中明确显示了激活函数的计算过程，即信号的加权总和为节点a，然后节点a被激活函数 转换成节点y，这里，我们称a和y为“节点”，其实它和之前所说的“神经元”含义相同。</p>
 <h4 id="2-1-sigmoid函数"><a href="#2-1-sigmoid函数" class="headerlink" title="2.1 sigmoid函数"></a>2.1 sigmoid函数</h4><p>神经网络中经常使用的一个激活函数就是sigmoid函数 。</p>
-<p>$$$h(x) = \frac{1}{1 + e^{-x}}$$</p>
-<p>（e是自然常数2.7182…）</p>
+<script type="math/tex; mode=display">$h(x) = \frac{1}{1 + e^{-x}}</script><p>（e是自然常数2.7182…）</p>
 <p>神经网络中用sigmoid函数作为激活函数，进行信号的转换，转换后的信号被传送给下一个神经元。感知机和接下来要介绍的神经网络的主要区别就在于这个激活函数。其他方面，比如神经元的多层连接的构造、信号的传递方法等，基本上和感知机是一样的。</p>
 <p>我们先看看阶跃函数的图像：</p>
 <p><img src="/images/gzj12.png" alt="img"></p>
@@ -632,8 +628,7 @@
 <p>如本例所示， 使用线性函数时，无法发挥多层网络带来的优势，是一种“浪费”。因此，为了发挥叠加层所带来的优势，激活函数必须使用非线性函数。</p>
 <h4 id="2-4-ReLu函数"><a href="#2-4-ReLu函数" class="headerlink" title="2.4 ReLu函数"></a>2.4 ReLu函数</h4><p>可以说，到目前为止，sigmoid函数和ReLu函数是最常用的两种激活函数。</p>
 <p>ReLU函数在输入大于0时，直接输出该值；在输入小于等于0时，输出0：</p>
-<p>$$\begin{eqnarray} \mbox{h(x)} &amp; = &amp; \left{ \begin{array}{ll} 0 &amp; \mbox{if } \ x  \leq \mbox{ 0} \ x &amp; \mbox{if } \ x &gt;  \mbox{ 0} \end{array} \right. \end{eqnarray}$$</p>
-<p><img src="/images/gzj14.png" alt="img"></p>
+<script type="math/tex; mode=display">\begin{eqnarray} \mbox{h(x)} & = & \left\{ \begin{array}{ll} 0 & \mbox{if } \ x  \leq \mbox{ 0} \\ x & \mbox{if } \ x >  \mbox{ 0} \end{array} \right. \end{eqnarray}</script><p><img src="/images/gzj14.png" alt="img"></p>
 <h4 id="3-多维数组的运算"><a href="#3-多维数组的运算" class="headerlink" title="3.多维数组的运算"></a>3.多维数组的运算</h4><p>这里一些十分基础的矩阵运算就不再提及了， 毕竟大家都已经学过线性代数了。</p>
 <p>所以我们来直接看一看他在神经网络中是如何进行的：</p>
 <p><img src="/images/gzj15.png" alt="img"></p>
@@ -641,10 +636,8 @@
 <p><img src="/images/gzj16.png" alt="img"></p>
 <p>图2-8中增加了表示偏置的神经元“1”。请注意，偏置的右下角的索引号只有一个。这是因为前一层的偏置神经元（神经元“1”）只有一个。</p>
 <p>为了确认前面的内容，现在用数学式表示，通过加权信号和偏置的和按如下方式进行计算：</p>
-<p>$$a_1^{(1)}  =  w_{11}^{(1)} * x_1+ w_{12}^{(1)} * x_2 + b_1^{(1)}$$</p>
-<p>如果使用矩阵的乘法运算，则可以将第1层的加权和表示成下面的式子：</p>
-<p>$$A^{(1)} = XW^{(1)} + B^{(1)}$$</p>
-<p><img src="/images/gzj17.png" alt="img"></p>
+<script type="math/tex; mode=display">a_1^{(1)}  =  w_{11}^{(1)} * x_1+ w_{12}^{(1)} * x_2 + b_1^{(1)}</script><p>如果使用矩阵的乘法运算，则可以将第1层的加权和表示成下面的式子：</p>
+<script type="math/tex; mode=display">A^{(1)} = XW^{(1)} + B^{(1)}</script><p><img src="/images/gzj17.png" alt="img"></p>
 <p>在我们加入激活函数后向后传递：</p>
 <p><img src="/images/gzj18.png" alt="img"></p>
 <p>当神经网络进行到最后一层（输出层）时，为了和之前的流程保持一致，我们对输出层也增加一个激活函数，即恒等函数。恒等函数会将输入按原样输出，输出层的激活函数用σ()表示，不同于隐 藏层的激活函数h()。</p>
@@ -653,8 +646,7 @@
 </blockquote>
 <h4 id="4-恒等函数和softmax函数"><a href="#4-恒等函数和softmax函数" class="headerlink" title="4.恒等函数和softmax函数"></a>4.恒等函数和softmax函数</h4><p>恒等函数会将输入按原样输出，对于输入的信息，不加以任何改动地直接输出。</p>
 <p>而在分类问题中使用的softmax函数可以如下表示：</p>
-<p>$$y_k = \frac{e^{a_k}}{  \sum_{i = 1}^n  {e^{a_i}}} $$</p>
-<p>如图所示， softmax函数的输出通过箭头与所有的输入信号相连，输出层的各个神经元都受到所有输入信号的影响。</p>
+<script type="math/tex; mode=display">y_k = \frac{e^{a_k}}{  \sum_{i = 1}^n  {e^{a_i}}}</script><p>如图所示， softmax函数的输出通过箭头与所有的输入信号相连，输出层的各个神经元都受到所有输入信号的影响。</p>
 <p><img src="/images/gzj19.png" alt="img"></p>
 <h4 id="4-1-softmax函数的特征"><a href="#4-1-softmax函数的特征" class="headerlink" title="4.1 softmax函数的特征"></a>4.1 softmax函数的特征</h4><p>softmax函数的输出是0.0到1.0之间的实数。并且，softmax 函数的输出值的总和是1。输出总和为1是softmax函数的一个重要性质。正因为有了这个性质，我们才可以把softmax函数的输出解释为“概率”。</p>
 <p>假设上图的结果， $y_1$是0.245（24.5 %）， $y_2$是0.737（73.7%）。从概率的结果来看，我们可以说“因为第2个元素的概率最高，所以答案是第2个类别”，通过使用softmax函数，我们可以用概率的（统 计的）方法处理问题。</p>
@@ -679,14 +671,11 @@
 <p>因此，仅仅用一个数据集去学习和评价参数，是无法进行正确评价的。 这样会导致可以顺利地处理某个数据集，但无法处理其他数据集的情况。只对某个数据集过度拟合的状态称为<strong>过拟合</strong>避免过拟合也是机器学习的一个重要课题。</p>
 <h3 id="2-损失函数"><a href="#2-损失函数" class="headerlink" title="2.损失函数"></a>2.损失函数</h3><p>损失函数是表示神经网络性能的“恶劣程度”的指标，即当前的神经网络对监督数据在多大程度上不拟合，在多大程度上不一致。</p>
 <h4 id="2-1-均方误差"><a href="#2-1-均方误差" class="headerlink" title="2.1 均方误差"></a>2.1 均方误差</h4><p>可以用作损失函数的函数有很多，其中最有名的是均方误差（mean squared error）。均方误差如下式所示：</p>
-<p>$$E = \frac{1}{2}\sum\nolimits_{k} {(y_k - t_k)} ^ 2 $$</p>
-<p>这里，<img src="https://math.jianshu.com/math?formula=y_k" alt="y_k">是表示神经网络的输出，<img src="https://math.jianshu.com/math?formula=t_k" alt="t_k">表示监督数据，k表示数据的维数。</p>
+<script type="math/tex; mode=display">E = \frac{1}{2}\sum\nolimits_{k} {(y_k - t_k)} ^ 2</script><p>这里，<img src="https://math.jianshu.com/math?formula=y_k" alt="y_k">是表示神经网络的输出，<img src="https://math.jianshu.com/math?formula=t_k" alt="t_k">表示监督数据，k表示数据的维数。</p>
 <h4 id="2-2-交叉熵误差"><a href="#2-2-交叉熵误差" class="headerlink" title="2.2 交叉熵误差"></a>2.2 交叉熵误差</h4><p>除了均方误差之外，交叉熵误差（cross entropy error）也经常被用作损 失函数。交叉熵误差如下式所示：</p>
-<p>$$E = -\sum_{k} t_k \ln y_k$$</p>
-<p>实际上只计算对应正确解标签的输出的自然对数。比如，假设正确解标签的索引是“2”，与之对应的神经网络的输出是0.6，则交叉熵误差是−log 0.6 = 0.51；若“ 2”对应的输出是0.1，则交叉熵误差为−log0.1 = 2.30。 也就是说，交叉熵误差的值是由正确解标签所对应的输出结果决定的。</p>
+<script type="math/tex; mode=display">E = -\sum_{k} t_k \ln y_k</script><p>实际上只计算对应正确解标签的输出的自然对数。比如，假设正确解标签的索引是“2”，与之对应的神经网络的输出是0.6，则交叉熵误差是−log 0.6 = 0.51；若“ 2”对应的输出是0.1，则交叉熵误差为−log0.1 = 2.30。 也就是说，交叉熵误差的值是由正确解标签所对应的输出结果决定的。</p>
 <h4 id="2-3-mini-batch学习"><a href="#2-3-mini-batch学习" class="headerlink" title="2.3 mini-batch学习"></a>2.3 mini-batch学习</h4><p>机器学习使用训练数据进行学习。使用训练数据进行学习，严格来说， 就是针对训练数据计算损失函数的值，找出使该值尽可能小的参数。因此，计算损失函数时必须将所有的训练数据作为对象。也就是说，如果训练数据有100个的话，我们就要把这100个损失函数的总和作为学习的指标，以交叉熵误差为例，可以写成下面的式子：</p>
-<p>$$E = -\frac{1}{N} \sum_{n} \sum_{k} t_{nk} \ln y_{nk}$$</p>
-<p>这里,假设数据有N个，<img src="https://math.jianshu.com/math?formula=t_%7Bnk%7D%0A" alt="t_{nk}">表示第n个数据的第k个元素的值。</p>
+<script type="math/tex; mode=display">E = -\frac{1}{N} \sum_{n} \sum_{k} t_{nk} \ln y_{nk}</script><p>这里,假设数据有N个，<img src="https://math.jianshu.com/math?formula=t_%7Bnk%7D%0A" alt="t_{nk}">表示第n个数据的第k个元素的值。</p>
 <p>如果遇到大数据， 数据量会有几百万、几千万之多，这种情况下以全部数据为对象计算损失函 数是不现实的。因此，我们从全部数据中选出一部分，作为全部数据的“近 似”。神经网络的学习也是从训练数据中选出一批数据（称为mini-batch,小 批量），然后对每个mini-batch进行学习。比如，从60000个训练数据中随机 选择100笔，再用这100笔数据进行学习。这种学习方式称为<strong>mini-batch学习</strong>。</p>
 <h3 id="3-数值微分"><a href="#3-数值微分" class="headerlink" title="3.数值微分"></a>3.数值微分</h3><h4 id="3-1-导数"><a href="#3-1-导数" class="headerlink" title="3.1 导数"></a>3.1 导数</h4><p>这个大家显然都学过，物理意义和数学意义就不在这里多讲了</p>
 <h4 id="3-2-数值微分的实现"><a href="#3-2-数值微分的实现" class="headerlink" title="3.2 数值微分的实现"></a>3.2 数值微分的实现</h4><p>利用微小的差分求导数的过程称为数值微分（numerical  differentiation）。而基于数学式的推导求导数的过程，则用“解析性”（analytic）一词，称为“解析性求解”或者“解析性求导”。比如， y = x2的导数，可以通过解析性地求解出来。因此，当x = 2时， y的导数为4。解析性求导得到的导数是不含误差的“真的导数”。</p>
@@ -704,9 +693,7 @@
 </blockquote>
 <p>虽然梯度的方向并不一定指向最小值，但沿着它的方向能够最大限度地 减小函数的值，在梯度法中，函数的取值从当前位置沿着梯 度方向前进一定距离，然后在新的地方重新求梯度，再沿着新梯度方向前进， 如此反复，不断地沿梯度方向前进。</p>
 <p>严格地讲， 寻找最小值的梯度法称为<strong>梯度下降法</strong> ， 寻找最大值的梯度法称为<strong>梯度上升法，</strong>但是通过反转损失函数的符号，求最小值的问题和求最大值的问题会变成相同的问题。</p>
-<p>$$x_0 = x_0 - \eta \frac{\vartheta f}{\vartheta x_0} $$</p>
-<p> $$x_1 = x_1 - \eta \frac{\vartheta f}{\vartheta x_1}$$</p>
-<p>η表示更新量，在神经网络的学习中，称为学习率。学习率决定在一次学习中，应该学习多少，以及在多大程度上更新参数。这个步骤会反复执行，也就是说，每 一步都按式（4.7）更新变量的值，通过反复执行此步骤，逐渐减小函数值。 </p>
+<script type="math/tex; mode=display">x_0 = x_0 - \eta \frac{\vartheta f}{\vartheta x_0}</script><script type="math/tex; mode=display">x_1 = x_1 - \eta \frac{\vartheta f}{\vartheta x_1}</script><p>η表示更新量，在神经网络的学习中，称为学习率。学习率决定在一次学习中，应该学习多少，以及在多大程度上更新参数。这个步骤会反复执行，也就是说，每 一步都按式（4.7）更新变量的值，通过反复执行此步骤，逐渐减小函数值。 </p>
 <p>学习率需要事先确定为某个值，比如0.01或0.001。一般而言，这个值过大或过小，都无法抵达一个“好的位置”。在神经网络的学习中，一般会 一边改变学习率的值，一边确认学习是否正确进行了。</p>
 <h4 id="4-2-神经网络的梯度"><a href="#4-2-神经网络的梯度" class="headerlink" title="4.2 神经网络的梯度"></a>4.2 神经网络的梯度</h4><p>神经网络的学习也要求梯度，这里所说的梯度是指损失函数关于权重参数的梯度。比如，有一个只有一个形状为2×3的权重W的神经网络，损失函数用L表示。此时，梯度可以用$\frac{\vartheta L}{\vartheta w} $表示。</p>
 <p><img src="/images/gzj23.png" alt="img"></p>
@@ -722,27 +709,22 @@
 <h2 id="三、学习的技巧"><a href="#三、学习的技巧" class="headerlink" title="三、学习的技巧"></a>三、学习的技巧</h2><p>将会介绍神经网络的学习中的一些重要观点，主题涉及寻找最优权重参数的最优化方法、权重参数的初始值、超参数的设定方法等。此外，为了应对过拟合，还将介绍权值衰减、Dropout等正则化方法， 最后将对近年来众多研究中使用的Batch Normalization方法进行简单的介绍。</p>
 <h3 id="1-参数的更新"><a href="#1-参数的更新" class="headerlink" title="1.参数的更新"></a>1.参数的更新</h3><p>神经网络的学习的目的是找到使损失函数的值尽可能小的参数。这是寻 找最优参数的问题，解决这个问题的过程称为最优化（optimization）。</p>
 <p>在之前，为了找到最优参数，我们将参数的梯度（导数）作为了线索。 使用参数的梯度，沿梯度方向更新参数，并重复这个步骤多次，从而逐渐靠 近最优参数，这个过程称为随机梯度下降法<strong>（SGD）。</strong>SGD是一个简单的方法，不过比起胡乱地搜索参数空间，也算是“聪 明”的方法。但是，根据不同的问题，也存在比SGD更加聪明的方法。</p>
-<h4 id="1-1-SGD"><a href="#1-1-SGD" class="headerlink" title="1.1 SGD"></a>1.1 SGD</h4><p>$$W \leftarrow  W - \eta \frac{\vartheta L}{\vartheta W} $$</p>
-<p>这里把需要更新的权重参数记为W，把损失函数关于W的梯度记为$\frac{\vartheta L}{\vartheta W} $。 η表示学习率，实际上会取0.01或0.001这些事先决定好的值。</p>
+<h4 id="1-1-SGD"><a href="#1-1-SGD" class="headerlink" title="1.1 SGD"></a>1.1 SGD</h4><script type="math/tex; mode=display">W \leftarrow  W - \eta \frac{\vartheta L}{\vartheta W}</script><p>这里把需要更新的权重参数记为W，把损失函数关于W的梯度记为$\frac{\vartheta L}{\vartheta W} $。 η表示学习率，实际上会取0.01或0.001这些事先决定好的值。</p>
 <p>虽然SGD简单，并且容易实现，但是在解决某些问题时可能没有效率。 这里，在指出SGD的缺点之际，我们来思考一下求下面这个函数的最小值的问题:</p>
-<p>$$f(x, y) = \frac{1}{20}x^2 + y^2$$</p>
-<p><img src="/images/gzj24.png" alt="img"></p>
+<script type="math/tex; mode=display">f(x, y) = \frac{1}{20}x^2 + y^2</script><p><img src="/images/gzj24.png" alt="img"></p>
 <p>现在看一下这个函数的梯度。如果用图表示梯度的话，则如图所示，这个梯度的特征是，y轴方向上大，x轴方向上小。换句话说， 就是y轴方向的坡度大，而x轴方向的坡度小。这里需要注意的是，虽然式 （6.2）的最小值在(x,y) = (0, 0)处，但是图中的梯度在很多地方并没有指 向(0, 0)。</p>
 <p><img src="/images/gzj25.png" alt="img"></p>
 <p>如果我们对这种形状的函数应用SGD，明显会呈现“之”字形移动这种非常低效的路径，所以，SGD的缺点是，如果函数的形状非均向（anisotropic），比如呈延伸状，搜索 的路径就会非常低效。</p>
 <p><img src="/images/gzj26.png" alt="img"></p>
 <p>所以接下来我们介绍几种优化后的方法，很多原理都比较复杂，大家可以自行查阅论文，这里主要是介绍。</p>
 <h4 id="1-2-Momentum"><a href="#1-2-Momentum" class="headerlink" title="1.2 Momentum"></a>1.2 Momentum</h4><p>Momentum是“动量”的意思，和物理有关。用数学式表示Momentum方 法，如下所示：</p>
-<p>$$W \leftarrow  \alpha \nu  - \eta \frac{\vartheta L}{\vartheta W} $$</p>
-<p>和前面的SGD一样，W表示要更新的权重参数， $\frac{\vartheta L}{\vartheta W} $表示损失函数关 于W的梯度，η表示学习率。这里新出现了一个变量v，对应物理上的速度。这个公式表示了物体在梯度方向上的受力，在这个力的作用下，物体的速度增加这一物理法则。其中中有 αv这一项。在物体不受任何力时，该项承担使物体逐渐减速的任务（α设定为0.9之类的值），对应物理上的地面摩擦或空气阻力。</p>
+<script type="math/tex; mode=display">W \leftarrow  \alpha \nu  - \eta \frac{\vartheta L}{\vartheta W}</script><p>和前面的SGD一样，W表示要更新的权重参数， $\frac{\vartheta L}{\vartheta W} $表示损失函数关 于W的梯度，η表示学习率。这里新出现了一个变量v，对应物理上的速度。这个公式表示了物体在梯度方向上的受力，在这个力的作用下，物体的速度增加这一物理法则。其中中有 αv这一项。在物体不受任何力时，该项承担使物体逐渐减速的任务（α设定为0.9之类的值），对应物理上的地面摩擦或空气阻力。</p>
 <p><img src="/images/gzj27.png" alt="img"></p>
 <p>可以看到，当我们使用momentum优化时，更新路径就像小球在碗中滚动一样。和SGD相比，我们发现 “之”字形的“程度”减轻了。这是因为虽然x轴方向上受到的力非常小，但是因为一直在同一方向上受力，所以朝同一个方向会有一定的加速。反过来，虽然y轴方向上受到的力很大，但是因为交互地受到正方向和反方向的力，它们会互相抵消，所以y轴方向上的速度不稳定。</p>
 <h4 id="1-3-AdaGrad"><a href="#1-3-AdaGrad" class="headerlink" title="1.3 AdaGrad"></a>1.3 AdaGrad</h4><p>在神经网络的学习中，学习率（数学式中记为η）的值很重要。学习率过小， 会导致学习花费过多时间；反过来，学习率过大，则会导致学习发散而不能 正确进行。 </p>
 <p>在关于学习率的有效技巧中，有一种被称为学习率衰减（learning rate decay）的方法，即随着学习的进行，使学习率逐渐减小。实际上，一开始“多” 学，然后逐渐“少”学的方法，在神经网络的学习中经常被使用。 逐渐减小学习率的想法，相当于将“全体”参数的学习率值一起降低。 </p>
 <p>而AdaGrad 进一步发展了这个想法，针对“一个一个”的参数，赋予其“定制”的值。 AdaGrad会为参数的每个元素适当地调整学习率，与此同时进行学习 。下面，让我们用数学式表示AdaGrad的更新方法。</p>
-<p>$$h \leftarrow  h - \eta \frac{\vartheta L}{\vartheta W}  \odot \frac{\vartheta L}{\vartheta W}  $$</p>
-<p>$$W \leftarrow  W - \eta \frac{1}{\sqrt{h} } \frac{\vartheta L}{\vartheta W} $$</p>
-<p>和前面的SGD一样，W表示要更新的权重参数， $ \frac{\vartheta L}{\vartheta W} $表示损失函数关 于W的梯度，η表示学习率。这里新出现了变量h，它保存了以前的所有梯度值的平方和, $\odot$表示对应矩阵元素的乘法。 然后，在更新参数时，通过乘以$ \frac{1}{\sqrt{h} }$ ，就可以调整学习的尺度。这意味着， 参数的元素中变动较大（被大幅更新）的元素的学习率将变小。也就是说， 可以按参数的元素进行学习率衰减，使变动大的参数的学习率逐渐减小。</p>
+<script type="math/tex; mode=display">h \leftarrow  h - \eta \frac{\vartheta L}{\vartheta W}  \odot \frac{\vartheta L}{\vartheta W}</script><script type="math/tex; mode=display">W \leftarrow  W - \eta \frac{1}{\sqrt{h} } \frac{\vartheta L}{\vartheta W}</script><p>和前面的SGD一样，W表示要更新的权重参数， $ \frac{\vartheta L}{\vartheta W} $表示损失函数关 于W的梯度，η表示学习率。这里新出现了变量h，它保存了以前的所有梯度值的平方和, $\odot$表示对应矩阵元素的乘法。 然后，在更新参数时，通过乘以$ \frac{1}{\sqrt{h} }$ ，就可以调整学习的尺度。这意味着， 参数的元素中变动较大（被大幅更新）的元素的学习率将变小。也就是说， 可以按参数的元素进行学习率衰减，使变动大的参数的学习率逐渐减小。</p>
 <blockquote>
 <p>AdaGrad会记录过去所有梯度的平方和。因此，学习越深入，更新的幅度就越小。实际上，如果无止境地学习，更新量就会变为0， 完全不再更新。为了改善这个问题，可以使用<strong>RMSProp</strong>方法。 RMSProp方法并不是将过去所有的梯度一视同仁地相加，而是逐渐 地遗忘过去的梯度，在做加法运算时将新梯度的信息更多地反映出来。 这种操作从专业上讲，称为“指数移动平均”，呈指数函数式地减小 过去的梯度的尺度。</p>
 </blockquote>
@@ -788,12 +770,10 @@
 <p>Batch Norm的思路是调整各层的激活值分布使其拥有适当 的广度。为此，要向神经网络中插入对数据分布进行正规化的层，即Batch Normalization层。</p>
 <p><img src="/images/gzj34.png" alt="img"></p>
 <p>Batch Norm，顾名思义，以进行学习时的mini-batch为单位，按mini-batch进行正规化。具体而言，就是进行使数据分布的均值为0、方差为1的正规化。用数学式表示的话，如下所示:</p>
-<p>$$\mu <em>B \leftarrow  \frac {1} {m} \sum</em>{i=1}^m x_i$$         $${\sigma <em>B}^2 \leftarrow \frac {1}{m} \sum</em>{i = 1}^m {(x_i - \mu _B)}^2$$)    $$\hat{x} _i \leftarrow \frac{x_i - \mu_B}{\sqrt{\sigma_B ^2 + \varepsilon }}$$</p>
-<p>这里对mini-batch的m个输入数据的集合B ={x1,x2,…,xm}求均值 $\mu _B$和方差${\sigma _B}^2 $ 。然后，对输入数据进行均值为0、方差为1（合适的分布）的正规化。式子中的<img src="https://math.jianshu.com/math?formula=%5Cvarepsilon%20" alt="\varepsilon ">是一个微小值（比如，10e-7等），它是为了防止出现除以0的情况。</p>
+<script type="math/tex; mode=display">\mu _B \leftarrow  \frac {1} {m} \sum_{i=1}^m x_i$$         $${\sigma _B}^2 \leftarrow \frac {1}{m} \sum_{i = 1}^m {(x_i - \mu _B)}^2$$)    $$\hat{x} _i \leftarrow \frac{x_i - \mu_B}{\sqrt{\sigma_B ^2 + \varepsilon }}</script><p>这里对mini-batch的m个输入数据的集合B ={x1,x2,…,xm}求均值 $\mu _B$和方差${\sigma _B}^2 $ 。然后，对输入数据进行均值为0、方差为1（合适的分布）的正规化。式子中的<img src="https://math.jianshu.com/math?formula=%5Cvarepsilon%20" alt="\varepsilon ">是一个微小值（比如，10e-7等），它是为了防止出现除以0的情况。</p>
 <p>接着，Batch Norm层会对正规化后的数据进行缩放和平移的变换，用数学式可以如下表示：</p>
-<p>$$y_i= \gamma \hat{x} _i + \beta$$</p>
-<p>这里，$\gamma $和$\beta$是参数。一开始$\gamma$ = 1，$\beta$ = 0，然后再通过学习调整到合适的值。 </p>
-<p><img src="/images/%E5%B9%B2%E7%9D%80%E6%80%A55.png" alt="img"></p>
+<script type="math/tex; mode=display">y_i= \gamma \hat{x} _i + \beta</script><p>这里，$\gamma $和$\beta$是参数。一开始$\gamma$ = 1，$\beta$ = 0，然后再通过学习调整到合适的值。 </p>
+<p><img src="/images/干着急5.png" alt="img"></p>
 <p>几乎所有的情况下都是使用Batch Norm时学习进行得更快。 同时也可以发现，在不使用Batch Norm的情况下，如果不赋予一个尺度好的初始值，学习将完全无法进行。通过使用Batch Norm，可以推动学习的进行；并且，神经网络对权重初始值变得健壮。</p>
 <h3 id="4-正则化"><a href="#4-正则化" class="headerlink" title="4.正则化"></a>4.正则化</h3><p>机器学习的问题中，<strong>过拟合</strong>是一个很常见的问题。过拟合指的是只能拟合训练数据，但不能很好地拟合不包含在训练数据中的其他数据的状态。所以，抑制过拟合的技巧很重要。</p>
 <p>发生过拟合的原因，主要有以下两个：</p>
@@ -1642,7 +1622,7 @@
   });
 </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
