@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://twifor.github.io"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/seven.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/seven.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/seven.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="联邦学习论文阅读最近阅读了两篇关于联邦学习的论文，《Communication-Efficient Learning of Deep Networks from Decentralized Data》和《FedMD Heterogenous Federated Learning via Model Distillation》，提出了两种算法FedAvg和FedMD。 Communication-E">
+<meta name="keywords" content="机器学习,论文阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="联邦学习论文阅读">
+<meta property="og:url" content="http://yoursite.com/2020/03/30/联邦学习论文阅读/index.html">
+<meta property="og:site_name" content="BlueDaydream">
+<meta property="og:description" content="联邦学习论文阅读最近阅读了两篇关于联邦学习的论文，《Communication-Efficient Learning of Deep Networks from Decentralized Data》和《FedMD Heterogenous Federated Learning via Model Distillation》，提出了两种算法FedAvg和FedMD。 Communication-E">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/fd_al1.png">
+<meta property="og:image" content="http://yoursite.com/images/fd_al2.png">
+<meta property="og:image" content="http://yoursite.com/images/fd_al3.png">
+<meta property="og:image" content="http://yoursite.com/images/fd_char1.png">
+<meta property="og:image" content="http://yoursite.com/images/fed_char3.png">
+<meta property="og:image" content="http://yoursite.com/images/fd_char2.png">
+<meta property="og:image" content="http://yoursite.com/images/fed_char4.png">
+<meta property="og:image" content="http://yoursite.com/images/fd_char5.png">
+<meta property="og:image" content="http://yoursite.com/images/fd_char6.png">
+<meta property="og:image" content="http://yoursite.com/images/image-20200330212355474.png">
+<meta property="og:updated_time" content="2020-03-30T13:28:13.524Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="联邦学习论文阅读">
+<meta name="twitter:description" content="联邦学习论文阅读最近阅读了两篇关于联邦学习的论文，《Communication-Efficient Learning of Deep Networks from Decentralized Data》和《FedMD Heterogenous Federated Learning via Model Distillation》，提出了两种算法FedAvg和FedMD。 Communication-E">
+<meta name="twitter:image" content="http://yoursite.com/images/fd_al1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/30/联邦学习论文阅读/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>联邦学习论文阅读 | BlueDaydream</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/Septieme7" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BlueDaydream</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/联邦学习论文阅读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Septieme7">
+      <meta itemprop="description" content="Love coding, music and sports.">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BlueDaydream">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">联邦学习论文阅读
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-30 17:45:58" itemprop="dateCreated datePublished" datetime="2020-03-30T17:45:58+08:00">2020-03-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-30 21:28:13" itemprop="dateModified" datetime="2020-03-30T21:28:13+08:00">2020-03-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/人工智能/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/30/联邦学习论文阅读/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/03/30/联邦学习论文阅读/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="联邦学习论文阅读"><a href="#联邦学习论文阅读" class="headerlink" title="联邦学习论文阅读"></a>联邦学习论文阅读</h1><p>最近阅读了两篇关于联邦学习的论文，《Communication-Efficient Learning of Deep Networks from Decentralized Data》和《FedMD Heterogenous Federated Learning via Model Distillation》，提出了两种算法FedAvg和FedMD。</p>
+<h2 id="Communication-Efficient-Learning-of-Deep-Networks-from-Decentralized-Data"><a href="#Communication-Efficient-Learning-of-Deep-Networks-from-Decentralized-Data" class="headerlink" title="Communication-Efficient Learning of Deep Networks from Decentralized Data"></a>Communication-Efficient Learning of Deep Networks from Decentralized Data</h2><h3 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h3><blockquote>
+<p>Modern mobile devices have access to a wealth of data suitable for learning models, which in turn can greatly improve the user experience on the device. For example, language models can improve speech recognition and text entry, and image models can automatically select good photos.However, this rich data is often privacy sensitive, large in quantity, or both, which may preclude logging to the data center and training there using conventional approaches.</p>
+</blockquote>
+<p>面对敏感或者很庞大的且不能直接上传到data center的数据，可能无法使用传统的方法集中训练模型。</p>
+<h3 id="主要研究内容"><a href="#主要研究内容" class="headerlink" title="主要研究内容"></a>主要研究内容</h3><blockquote>
+<p>We advocate an alternative that leaves the training data distributed on the mobile devices, and learns a shared model by aggregating locally-computed updates. We term this decentralized approach Federated Learning.</p>
+</blockquote>
+<p>提出了一种代替性的模型训练方法——<strong>Federated Learning</strong></p>
+<blockquote>
+<p>We present a practical method for the federated learning of deep networks based on iterative model averaging, and conduct an extensive empirical evaluation, considering five different model architectures and four datasets. These experiments demonstrate the approach is robust to the unbalanced and non-IID data distributions that are a defining characteristic of this setting. Communication costs are the principal constraint, and we show a reduction in required communication rounds by 10–100× as compared to synchronized stochastic gradient descent.</p>
+</blockquote>
+<p>提出了基于迭代模型平均的算法，对于非独立同分布数据仍然有效，且相比同步随即梯度下降减少了10-100倍的通信成本</p>
+<blockquote>
+<p>More concretely, we introduce the FederatedAveraging algorithm, which combines local stochastic gradient descent (SGD) on each client with a server that performs model averaging. We perform extensive experiments on this algorithm, demonstrating it is robust to unbalanced and non-IID data distributions, and can reduce the rounds of communication needed to train a deep network on decentralized data by orders of magnitude.</p>
+</blockquote>
+<p>提出FedAvg算法，将每个客户端上的本地随机梯度下降（SGD）与执行模型平均的服务器相结合。 对不平衡和非IID数据分布有很好的鲁棒性，并且可以减少对分散数据进行深度网络训练所需的通信次数。</p>
+<h3 id="联邦学习"><a href="#联邦学习" class="headerlink" title="联邦学习"></a>联邦学习</h3><blockquote>
+<p>Federated Learning Ideal problems for federated learn- ing have the following properties: 1) Training on real-world data from mobile devices provides a distinct advantage over training on proxy data that is generally available in the data center. 2) This data is privacy sensitive or large in size (compared to the size of the model), so it is preferable not to log it to the data center purely for the purpose of model training (in service of the focused collection principle). 3) For supervised tasks, labels on the data can be inferred naturally from user interaction.</p>
+</blockquote>
+<p>联合学习联合学习的理想问题具有以下特性：</p>
+<ol>
+<li><p>训练来自移动设备的真实数据比训练数据中心通常提供的代理数据具有明显的优势。</p>
+</li>
+<li><p>此数据是隐私敏感的或较大的（与模型的大小相比），因此最好不要仅出于模型训练的目的（出于集中收集的原则）将其记录到数据中心。</p>
+</li>
+<li><p>对于监督任务，可以从用户交互中自然推断出数据上的标签。</p>
+</li>
+</ol>
+<h3 id="隐私"><a href="#隐私" class="headerlink" title="隐私"></a>隐私</h3><blockquote>
+<p>Privacy Federated learning has distinct privacy advantages compared to data center training on persisted data. Holding even an “anonymized” dataset can still put user privacy at risk via joins with other data (Sweeney, 2000). In contrast, the information transmitted for federated learning is the minimal update necessary to improve a particular model (naturally, the strength of the privacy benefit depends on the content of the updates.) The updates themselves can (and should) be ephemeral. They will never contain more information than the raw training data (by the data processing inequality), and will generally contain much less. Further, the source of the updates is not needed by the aggregation algorithm, so updates can be transmitted without identifying meta-data over a mix network such as Tor (Chaum, 1981) or via a trusted third party. We briefly discuss the possibility of combining federated learning with secure multiparty computation and differential privacy at the end of the paper.</p>
+</blockquote>
+<ol>
+<li>FL 传输的信息是改进特定模型所必需的最小更新（隐私利益的强度取决于更新的内容）;</li>
+<li>更新本身是短暂的，所包含的信息绝不会超过原始训练数据且通常会少得多；</li>
+<li>聚合算法不需要更新源（不需要知道用户是谁？），因此，可以通过混合网络（例如Tor）或通过受信任的第三方传输更新而无需标识元数据。</li>
+<li>将联合学习与安全的多方计算及差分隐私相结合</li>
+</ol>
+<h3 id="联邦优化"><a href="#联邦优化" class="headerlink" title="联邦优化"></a>联邦优化</h3><p>在联邦学习中的优化问题</p>
+<p>几个关键属性：</p>
+<blockquote>
+<p>Non-IID The training data on a given client is typically based on the usage of the mobile device by a particular user, and hence any particular user’s local dataset will not be representative of the population distribution.<br>Unbalanced Similarly, some users will make much heavier use of the service or app than others, leading to varying amounts of local training data.<br>Massively distributed We expect the number of clients participating in an optimization to be much larger than the average number of examples per client.<br>Limited communication Mobile devices are frequently offline or on slow or expensive connections.</p>
+</blockquote>
+<ol>
+<li>用户数据非独立同分布： 特定的用户数据不能代表用户的整体分布；</li>
+<li>用户数据量不平衡： 数据量不均衡，因为有的用户使用多，有的用户使用少；</li>
+<li>用户（分布）是大规模的： 参与优化的用户数大于平均每个用户的数据量；</li>
+<li>用户端设备通信限制： 移动设备经常掉线、速度缓慢、费用昂贵。</li>
+</ol>
+<p>最重要的就是<strong>非独立同分布、不平衡的数据和面对的通信约束</strong></p>
+<p>实践中面对的问题：</p>
+<blockquote>
+<p>A deployed federated optimization system must also address a myriad of practical issues: client datasets that change as data is added and deleted; client availability that correlates with the local data distribution in complex ways; and clients that never respond or send corrupted updates.</p>
+</blockquote>
+<ol>
+<li>随着数据添加和删除而不断改变的客户端数据集；</li>
+<li>客户端（更新）的可用性与其本地数据分布有着复杂的关系；</li>
+<li>从来不响应或发送信息的客户端会损坏更新</li>
+</ol>
+<p>但在<strong>本文中不做考虑</strong></p>
+<h3 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h3><h4 id="执行方法"><a href="#执行方法" class="headerlink" title="执行方法"></a>执行方法</h4><blockquote>
+<p>We assume a synchronous update scheme that proceeds in rounds of communication. There is a fixed set of K clients, each with a fixed local dataset. At the beginning of each round, a random fraction C of clients is selected, and the server sends the current global algorithm state to each of these clients (e.g., the current model parameters). Each client then performs local computation based on the global state and its local dataset, and sends an update to the server. The server then applies these updates to its global state, and the process repeats.</p>
+</blockquote>
+<p>假设同步更新方案在各轮通信中进行；有一组固定的客户端集合，大小为K，每个客户端都有一个固定的本地数据集；</p>
+<ol>
+<li>在每轮更新开始时，随机选择部分客户端，比例为C（C≤1）；</li>
+<li>服务器将当前的全局算法的状态发送给这些客户（例如，当前的模型参数）；</li>
+<li>每个客户端都基于全局状态及其本地数据集执行本地计算，并将更新发送到服务器；</li>
+<li>最后，服务器将这些更新应用于其全局状态，然后重复该过程。</li>
+</ol>
+<h4 id="非凸神经网络的目标函数"><a href="#非凸神经网络的目标函数" class="headerlink" title="非凸神经网络的目标函数"></a>非凸神经网络的目标函数</h4><blockquote>
+<p>While we focus on non-convex neural network objectives, the algorithm we consider is applicable to any finite-sum objective of the form</p>
+</blockquote>
+<p><img src="/images/fd_al1.png" alt="image-20200330200506682"></p>
+<blockquote>
+<p>For a machine learning problem, we typically take fi(w) = l(xi, yi; w), that is, the loss of the prediction on example (xi, yi) made with model parameters w. We assume there are K clients over which the data is partitioned, with Pk the set of indexes of data points on client k, with nk = |Pk|.</p>
+<p>Thus, we can re-write the objective (1) as</p>
+</blockquote>
+<p>对于机器学习问题，我们通常定义fi(w) = L(xi,yi;w)；假设数据分布在K个客户端，Dk代表客户端k数据点的集合，nk为Dk的大小，目标函数可以重写为：</p>
+<p><img src="/images/fd_al2.png" alt="image-20200330201216427"></p>
+<p>如果划分Dk是所有用户数据的随机取样，则目标函数f(w)就等价于损失函数关于Dk的期望：</p>
+<p><img src="/images/fd_al3.png" alt="image-20200330201341489"></p>
+<p>（这就是传统的分布式优化问题的独立同分布假设）</p>
+<h3 id="通信成本和计算成本"><a href="#通信成本和计算成本" class="headerlink" title="通信成本和计算成本"></a>通信成本和计算成本</h3><blockquote>
+<p><strong>Thus, our goal is to use additional computation in order to decrease the number of rounds of communication needed to train a model. </strong>There are two primary ways we can add computation: <strong>1) increased parallelism, </strong>where we use more clients working independently between each communication round; and, <strong>2) increased computation on each client,</strong> where rather than performing a simple computation like a gradient calculation, each client performs a more complex calculation between each communication round. We investigate both of these approaches, but the speedups we achieve are due primarily to adding more computation on each client, once a minimum level of parallelism over clients is used.</p>
+</blockquote>
+<ul>
+<li><p>在data center的优化问题中，通信成本相对较小，而计算成本占主导地位，重点是可以使用GPU来降低这些成本；</p>
+</li>
+<li><p>在联合优化中，通信成本占主导地位：</p>
+<ul>
+<li><p>通常会受到1 MB/s或更小的上传带宽的限制；</p>
+</li>
+<li><p>并且客户通常只会在充电，插入电源和不计量的Wi-Fi连接时自愿参与优化；</p>
+</li>
+<li><p>希望每个客户每天只参加少量的更新回合</p>
+</li>
+</ul>
+<p>而计算成本相对较小：</p>
+<ul>
+<li><p>任何单个设备上的数据集都比总数据集的大小小；</p>
+</li>
+<li><p>现代智能手机具有相对较快的处理器（包括GPU）</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>因此，我们的目标是使用额外的计算，以减少训练模型所需的通信次数。</p>
+<p>考虑两种方法来添加计算量：</p>
+<ul>
+<li>提高并行性：在每个通信回合之间使用更多的客户端独立工作；</li>
+<li>增加每个客户端的计算量： 不像梯度计算那样执行简单的计算，而是每个客户端在每个通信回合之间执行更复杂的计算。</li>
+</ul>
+<p>在最低级别的客户端并行性后，我们实现的加速主要是由于在每个客户端上添加了更多的计算。</p>
+<blockquote>
+<p>Asynchronous distributed forms of SGD have also been applied to training neural net- works, e.g., Dean et al. (2012), but these approaches require a prohibitive number of updates in the federated setting. One endpoint of the (parameterized) algorithm family we consider is simple one-shot averaging, where each client solves for the model that minimizes (possibly regularized) loss on their local data, and these models are averaged to produce the final global model. This approach has been studied extensively in the convex case with IID data, and it is known that in the worst-case, the global model produced is no better than training a model on a single client (Zhang et al., 2012; Arjevani and Shamir, 2015; Zinkevich et al., 2010).</p>
+</blockquote>
+<p>SGD的异步分布式形式也已用于训练神经网络</p>
+<p>在众多（参数化）算法中，我们最终考虑的是简单一次平均（simple one-shot averaging），其中每个客户解决的模型将其本地数据的损失降到最低（可能是正则化的），然后将这些模型取平均值以生成最终的全局模型。这种方法已经在带有独立同分布数据的凸情况下进行了广泛的研究，在最坏的情况下，生成的全局模型并不比在单个客户端上训练模型更好。</p>
+<h3 id="Federated-Averaging-Algorithm"><a href="#Federated-Averaging-Algorithm" class="headerlink" title="Federated Averaging Algorithm"></a>Federated Averaging Algorithm</h3><blockquote>
+<p>The recent multitude of successful applications of deep learning have almost exclusively relied on variants of stochastic gradient descent (SGD) for optimization; in fact, many advances can be understood as adapting the structure of the model (and hence the loss function) to be more amenable to optimization by simple gradient-based methods (Goodfellow et al., 2016). Thus, it is natural that we build algorithms for federated optimization by starting from SGD.</p>
+</blockquote>
+<ol>
+<li>深度学习的最新成功应用几乎都依赖于随机梯度下降（SGD）的变体进行优化；</li>
+<li>实际上，许多进展可以理解为通过调整模型的结构（或者损失函数），使其更易于使用简单的gradient-based methods进行优化。</li>
+</ol>
+<h4 id="baseline算法——FederatedSGD"><a href="#baseline算法——FederatedSGD" class="headerlink" title="baseline算法——FederatedSGD"></a>baseline算法——FederatedSGD</h4><blockquote>
+<p>SGD can be applied naively to the federated optimization problem, where a single batch gradient calculation (say on a randomly selected client) is done per round of communication. This approach is computationally efficient, but requires very large numbers of rounds of training to produce good models (e.g., even using an advanced approach like batch normalization, Ioffe and Szegedy (2015) trained MNIST for 50000 steps on minibatches of size 60). We consider this baseline in our CIFAR-10 experiments.</p>
+</blockquote>
+<p>问题：计算效率很高，但是需要大量（多轮）训练才能生成好的模型</p>
+<blockquote>
+<p>In the federated setting, there is little cost in wall-clock time to involving more clients, and so for our baseline we use large-batch synchronous SGD; experiments by Chen et al. (2016) show this approach is state-of-the-art in the data center setting, where it outperforms asynchronous approaches. To apply this approach in the federated setting, we select a C-fraction of clients on each round, and computes the gradient of the loss over all the data held by these clients. Thus, C controls the global batch size, with C = 1 corresponding to full-batch (non-stochastic) gradient descent. We refer to this baseline algorithm as FederatedSGD (or FedSGD).</p>
+</blockquote>
+<p>SGD可以直接应用于联邦优化，即每轮在随机选择的客户端上进行一次梯度计算</p>
+<p>基线算法：大批量同步SGD（在data center中是最先进的，优于异步方法）</p>
+<p>FL形式： 每轮在clients中选择C-fraction，计算这些clients的所有数据的损失函数梯度</p>
+<p>参数C： 控制global batch size；C = 1即全批（非随机）梯度下降</p>
+<h4 id="FedratedAveraging"><a href="#FedratedAveraging" class="headerlink" title="FedratedAveraging"></a>FedratedAveraging</h4><blockquote>
+<p>The amount of computation is controlled by three key parameters: C, the fraction of clients that perform computation on each round; E, then number of training passes each client makes over its local dataset on each round; and B, the local minibatch size used for the client updates. We write B = ∞ to indicate that the full local dataset is treated as a single minibatch. Thus, at one endpoint of this algorithm family, we can take B = ∞ and E = 1 which corresponds exactly to FedSGD. Complete pseudo-code is given in Algorithm 1</p>
+</blockquote>
+<p>个人认为，FedAvg可以看作FedSGD在用户本地进行多次梯度更新</p>
+<p>几个参数：C，B（本地batch），E（本地轮数）</p>
+<p>B = INF &amp; E= 1    local_batchsize为全部数据，更新一轮</p>
+<h4 id="模型的平均效果分析"><a href="#模型的平均效果分析" class="headerlink" title="模型的平均效果分析"></a>模型的平均效果分析</h4><p>对于一般的非凸目标函数，参数空间中的平均模型可能会产生任意不好的模型结果。当我们平均两个从不同初始条件训练的MNIST数字识别模型时，我们恰好看到了这种不良结果（图1，左）。</p>
+<p><img src="/images/fd_char1.png" alt="image-20200330203909908"></p>
+<p>目前的一些实验显示，从<strong>相同的随机初始化</strong>开始训练两个模型，然后在不同的数据子集上对每个模型进行独立训练，进行<strong>朴素的参数平均效果很好</strong>（图1，右）。</p>
+<blockquote>
+<p>The success of dropout training also provides some intuition for the success of our model averaging scheme; dropout training can be interpreted as averaging models of different architectures which share parameters, and the inference- time scaling of the model parameters is analogous to the model averaging used in FedAvg (Srivastava et al., 2014).</p>
+</blockquote>
+<p>Dropout training可以解释为共享参数的不同体系结构的平均模型，模型参数的推理时间缩放类似于FedAvg中使用的模型平均。</p>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p>对图像分类和语言建模分别进行了试验，也对IID和non-IID进行了试验</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>For all three model classes, FedAvg converges to a higher level of test-set accuracy than the baseline FedSGD models. This trend continues even if the lines are extended beyond the plotted ranges. For example, for the CNN the B = ∞, E = 1 FedSGD model eventually reaches 99.22% accuracy after 1200 rounds (and had not improved further after 6000 rounds), while the B = 10, E = 20 FedAvg model reaches an accuracy of 99.44% after 300 rounds. We conjecture that in addition to lowering communication costs, model averaging produces a regularization benefit similar to that achieved by dropout (Srivastava et al., 2014).<br>We are primarily concerned with generalization performance, but FedAvg is effective at optimizing the training loss as well, even beyond the point where test-set accuracy plateaus. We observed similar behavior for all three model classes, and present plots for the MNIST CNN in Figure 6 in Appendix A</p>
+</blockquote>
+<p>FedAvg收敛到比基准FedSGD模型更高的测试集准确性水平。（即使超出了绘制范围，这种趋势仍将继续。）例如，对于CNN，B =∞，E = 1 FedSGD模型最终在1200轮后达到了99.22％的准确度（并且在6000轮之后并没有进一步改善）；而B = 10，E = 20的FedAvg模型达到了300轮后达到99.44％。</p>
+<p>因此推测，除了降低通信成本外，模型平均还产生了与dropout正则化相似的优化效果。</p>
+<p>FedAvg具有一定的泛化能力，甚至可以优化训练损失（超出测试集精度的稳定水平）</p>
+<blockquote>
+<p>That is, we would expect that while one round of averaging might produce a reasonable model, additional rounds of communication (and averaging) would not produce further improvements.</p>
+</blockquote>
+<p>当前模型参数仅通过初始化影响每个Client Update中执行的优化。 当E→∞时，至少对于凸问题，并且无论初始化如何，都将达到全局最小值；对于非凸问题，只要初始化是在同一个”盆地“中，算法也会收敛到相同的局部最小值。</p>
+<p><img src="/images/fed_char3.png" alt="image-20200330205221327"></p>
+<p>对于某些模型，尤其是在收敛的后期阶段，以与降低学习率有用的相同方式来降低每轮的本地计算量（移动到较小的E或较大的B）可能是有用的，但对于很大的E值，我们看不到收敛速度的明显下降。</p>
+<p><img src="/images/fd_char2.png" alt="image-20200330205102093"></p>
+<h4 id="其他发现"><a href="#其他发现" class="headerlink" title="其他发现"></a>其他发现</h4><p>对SGD和FedAvg进行minibatch B = 50的实验，可以将精度视为进行minibatch gradient calculations次数的函数。 我们希望SGD能表现得更好，因为在每次minibatch computation之后都会采取一个顺序步骤。 但是，如图9，对于适当的C和E值，FedAvg在每次minibatch computation中取得相似的进度。 此外，当SGD和FedAvg每轮只有一个client时（绿），准确性显着波动，而对更多clients进行平均则可以解决这一问题（黄）。<br><img src="/images/fed_char4.png" alt="image-20200330205355840"></p>
+<h4 id="FedAvg对比FedSGD"><a href="#FedAvg对比FedSGD" class="headerlink" title="FedAvg对比FedSGD"></a>FedAvg对比FedSGD</h4><p>显示了最佳学习率的单调学习曲线。 η= 0.4的FedSGD需要310轮才能达到8.1％的准确度，而η= 18.0的FedAvg仅在20轮就达到了8.5％的准确性（比FedSGD少15倍）。</p>
+<p><img src="/images/fd_char5.png" alt="image-20200330205531333"></p>
+<p>不同lr对于FedAvg的准确性影响也要小得多</p>
+<p><img src="/images/fd_char6.png" alt="image-20200330205627239"></p>
+<h4 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h4><p>FedAvg可以使用相对较少的轮次来训练高质量的模型，联邦学习是实际可行的</p>
+<p>尽管联邦学习目前提供了许多隐私优势，但是通过差分隐私、多方安全计算及他们的组合是未来发展的方向</p>
+<h2 id="FedMD-Heterogenous-Federated-Learning-via-Model-Distillation"><a href="#FedMD-Heterogenous-Federated-Learning-via-Model-Distillation" class="headerlink" title="FedMD Heterogenous Federated Learning via Model Distillation"></a>FedMD Heterogenous Federated Learning via Model Distillation</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>相比之下这个思路看起来比较简单，使用了Model DIstilation的思想</p>
+<p>可以支持多个client使用不同的模型进行本地训练</p>
+<p>其中关键是存在一个公共数据集</p>
+<blockquote>
+<p>Before a participant starts the collaboration phase, its model must first undergo the entire transfer learning process. It will be trained fully on the public dataset and then on its own private data. Therefore any future improvements are compared to this baseline.</p>
+</blockquote>
+<p>在正式训练开始前，所有client先要进行一轮预训练，预训练使用的数据集是公共数据集和各个client的本地数据集</p>
+<blockquote>
+<p>We re-purpose the public dataset D0 as the basis of communication between models, which is realized using knowledge distillation. Each learner fk expresses its knowledge by sharing the class scores, fk(x0i ), computed on the public dataset D0. The central server collects these class scores and computes an average f (xi ). Each party then trains fk to approach the consensus f (xi ). In this way, the knowledge of one participant can be understood by others without explicitly<br>sharing its private data or model architecture. Using the entire large public dataset can cause a large communication burden. In practice, the server may randomly select a much smaller subset dj ⊂ D0 at each round as the basis of communication. In this way, the cost is under control and does not scale with the complexity of participating models.</p>
+</blockquote>
+<p>预训练进行完成之后进行正式训练，在正式训练过程中，每一轮都从公共数据集中拿出一个small_batch进行训练</p>
+<p>然后每个client都根据自己的模型计算出一个output（向量，未经过激活函数），并把他上传到server</p>
+<p>server将对这些向量进行一个平均，作为所有client的一个consensus，然后server会将这个consensus传给每一个client，然后各个client需要调整权重，向着靠近sonsensus的方向调整。</p>
+<h3 id="实验结果-1"><a href="#实验结果-1" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="/images/image-20200330212355474.png" alt="image-20200330212355474"></p>
+<blockquote>
+<p>Figure 2: FedMD improves the test accuracy of participating models beyond their baselines. A dashed line (on the left) represents the test accuracy of a model after full transfer learning with the public dataset and its own small private dataset. This baseline is our starting point and overlaps with the beginning of the corresponding learning curve. A dash-dot line (on the right) represents the would-be performance of a model if private datasets from all participants were declassified and made available to every participant of the group.</p>
+</blockquote>
+<p>FedMD提高了参与模型的测试精度，超出了其基线。 虚线（左侧）代表使用公共数据集和其自己的小型私有数据集进行完全转移学习后模型的测试准确性。 该基线是我们的起点，并且与相应的学习曲线的起点重叠。 点线（在右侧）表示如果将所有参与者的私人数据集解密并提供给组中的每个参与者，则模型的预期性能。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i>机器学习</a>
+          
+            <a href="/tags/论文阅读/" rel="tag"><i class="fa fa-tag"></i>论文阅读</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/16/Android View的绘制/" rel="next" title="Android View的绘制">
+                <i class="fa fa-chevron-left"></i> Android View的绘制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="Septieme7">
+            
+              <p class="site-author-name" itemprop="name">Septieme7</p>
+              <p class="site-description motion-element" itemprop="description">Love coding, music and sports.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Septieme7" title="GitHub &rarr; https://github.com/Septieme7" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:rogerliu00425@gmail.com" title="E-Mail &rarr; mailto:rogerliu00425@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/Septieme7" title="Weibo &rarr; https://weibo.com/Septieme7" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://twifor.github.io/" title="https://twifor.github.io/" rel="noopener" target="_blank">非常厉害的雨寒大佬</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#联邦学习论文阅读"><span class="nav-number">1.</span> <span class="nav-text">联邦学习论文阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Communication-Efficient-Learning-of-Deep-Networks-from-Decentralized-Data"><span class="nav-number">1.1.</span> <span class="nav-text">Communication-Efficient Learning of Deep Networks from Decentralized Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#研究背景"><span class="nav-number">1.1.1.</span> <span class="nav-text">研究背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要研究内容"><span class="nav-number">1.1.2.</span> <span class="nav-text">主要研究内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联邦学习"><span class="nav-number">1.1.3.</span> <span class="nav-text">联邦学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐私"><span class="nav-number">1.1.4.</span> <span class="nav-text">隐私</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联邦优化"><span class="nav-number">1.1.5.</span> <span class="nav-text">联邦优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化方法"><span class="nav-number">1.1.6.</span> <span class="nav-text">优化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行方法"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">执行方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非凸神经网络的目标函数"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">非凸神经网络的目标函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通信成本和计算成本"><span class="nav-number">1.1.7.</span> <span class="nav-text">通信成本和计算成本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Federated-Averaging-Algorithm"><span class="nav-number">1.1.8.</span> <span class="nav-text">Federated Averaging Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#baseline算法——FederatedSGD"><span class="nav-number">1.1.8.1.</span> <span class="nav-text">baseline算法——FederatedSGD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FedratedAveraging"><span class="nav-number">1.1.8.2.</span> <span class="nav-text">FedratedAveraging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模型的平均效果分析"><span class="nav-number">1.1.8.3.</span> <span class="nav-text">模型的平均效果分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验结果"><span class="nav-number">1.1.9.</span> <span class="nav-text">实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.1.9.1.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他发现"><span class="nav-number">1.1.9.2.</span> <span class="nav-text">其他发现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FedAvg对比FedSGD"><span class="nav-number">1.1.9.3.</span> <span class="nav-text">FedAvg对比FedSGD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#展望"><span class="nav-number">1.1.9.4.</span> <span class="nav-text">展望</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FedMD-Heterogenous-Federated-Learning-via-Model-Distillation"><span class="nav-number">1.2.</span> <span class="nav-text">FedMD Heterogenous Federated Learning via Model Distillation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验结果-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">实验结果</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Septieme7</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="41,81,94" ' opacity="1" zindex="-1" count="100" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+
+
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function (item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'n9UuiH8iAooE6proByRtdAX8-gzGzoHsz',
+    appKey: 'xvkM0lzjv3J3PhBYcN447hWI',
+    placeholder: 'Leave a message...',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/js/src/snow.js"></script>
+<style type="text/css">
+.snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100001;}</style>
+<div class="snow-container"></div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
