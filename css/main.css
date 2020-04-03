@@ -1929,7 +1929,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bac893;
+  background: #82bf0d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3224,7 +3224,7 @@ ul.breadcrumb li+li:last-child {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("https://source.unsplash.com/random/1920x1080?white");
+    background-image: url("/images/bg2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
