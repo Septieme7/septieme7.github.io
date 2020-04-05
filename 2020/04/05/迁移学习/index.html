@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://yoursite.com/images/image-20200405194508467.png">
 <meta property="og:image" content="http://yoursite.com/images/image-20200405195117715.png">
 <meta property="og:image" content="http://yoursite.com/images/image-20200405195818132.png">
-<meta property="og:updated_time" content="2020-04-05T12:30:28.523Z">
+<meta property="og:updated_time" content="2020-04-05T13:02:43.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="迁移学习简介">
 <meta name="twitter:description" content="迁移学习，个人的理解是通过对于源域的学习来帮助我们进行对于目标域的学习">
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-04-05 20:30:28" itemprop="dateModified" datetime="2020-04-05T20:30:28+08:00">2020-04-05</time>
+                <time title="修改时间：2020-04-05 21:02:43" itemprop="dateModified" datetime="2020-04-05T21:02:43+08:00">2020-04-05</time>
               
             
           </span>
@@ -533,29 +533,31 @@
         <h1 id="迁移学习简介"><a href="#迁移学习简介" class="headerlink" title="迁移学习简介"></a>迁移学习简介</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>比如我们已经会编写Java程序，就可以类比着来学习C++，都是面向对象的语言，就很快学会了，或者在学会骑自行车之后，骑摩托车也自己比较容易了，因为这两种交通工具有许多相似之处。迁移学习，总结起来就是说我们要帮助机器获得举一反三的能力。</p>
 <h5 id="几种分类"><a href="#几种分类" class="headerlink" title="几种分类"></a>几种分类</h5><ul>
 <li><p>基于实例的迁移：</p>
-</li>
-<li><ul>
-<li>通过权重的分配，来分别作用到源域和目标域来进行迁移，关于什么是源域，什么是目标域，这里可以先不用细究，你就明白是两个不同的空间就行了，具体的概念，后面的部分会详细的进行概述</li>
+<ul>
+<li>通过权重的分配，来分别作用到源域和目标域来进行迁移，关于什么是源域，什么是目标域，这里可以先不用细究，你就明白是两个不同的空间就行了，具体的概念，后面的部分会详细的进行概述<ul>
 <li>举例：比如说在源域中有一个样本和目标域中的一个样本非常的相似，那么我们就可以加大此样本对应的权重。</li>
 </ul>
 </li>
-<li><p>基于特征的迁移：</p>
+</ul>
 </li>
-<li><ul>
-<li>将源域和目标域的特征变换到同一个空间。</li>
+<li><p>基于特征的迁移：</p>
+<ul>
+<li>将源域和目标域的特征变换到同一个空间。<ul>
 <li>举例：比如说在两个域上的feature具有很大的区别，那么我们就可以通过将这两个域的feature变换到同样的空间，这个时候我们就可以很方便的研究这两个域上的相关内容和性质了。</li>
 </ul>
 </li>
-<li><p>基于模型的迁移：</p>
+</ul>
 </li>
-<li><ul>
-<li>通过源域和目标域的参数共享机制</li>
+<li><p>基于模型的迁移：</p>
+<ul>
+<li>通过源域和目标域的参数共享机制<ul>
 <li>举例：这也是我们在做DL中用到最多的一个方法了，比如说，将pre-trained的模型拿过来，通过固定一些layer的parameters，修改部分layer的parameters得到最终的非常好的结果。</li>
 </ul>
 </li>
-<li><p>基于关系的迁移：</p>
+</ul>
 </li>
-<li><ul>
+<li><p>基于关系的迁移：</p>
+<ul>
 <li>利用源域中某种一般性的逻辑关系进行迁移</li>
 </ul>
 </li>
