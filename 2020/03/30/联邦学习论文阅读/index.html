@@ -137,7 +137,7 @@
 <meta property="og:image" content="http://yoursite.com/images/fd_char5.png">
 <meta property="og:image" content="http://yoursite.com/images/fd_char6.png">
 <meta property="og:image" content="http://yoursite.com/images/image-20200330212355474.png">
-<meta property="og:updated_time" content="2020-04-10T12:33:26.673Z">
+<meta property="og:updated_time" content="2020-04-30T15:23:49.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="联邦学习论文阅读">
 <meta name="twitter:description" content="联邦学习的提出主要是为了解决数据孤岛问题，文中的两篇论文分别介绍了Federated Averaging算法和基于Model Distillation的Faderated Learning">
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-04-10 20:33:26" itemprop="dateModified" datetime="2020-04-10T20:33:26+08:00">2020-04-10</time>
+                <time title="修改时间：2020-04-30 23:23:49" itemprop="dateModified" datetime="2020-04-30T23:23:49+08:00">2020-04-30</time>
               
             
           </span>
@@ -713,7 +713,7 @@
 </blockquote>
 <p>预训练进行完成之后进行正式训练，在正式训练过程中，每一轮都从公共数据集中拿出一个small_batch进行训练</p>
 <p>然后每个client都根据自己的模型计算出一个output（向量，未经过激活函数），并把他上传到server</p>
-<p>server将对这些向量进行一个平均，作为所有client的一个consensus，然后server会将这个consensus传给每一个client，然后各个client需要调整权重，向着靠近sonsensus的方向调整。</p>
+<p>server将对这些向量进行一个平均，作为所有client的一个consensus，然后server会将这个consensus传给每一个client，然后各个client需要调整权重，向着靠近consensus的方向调整。</p>
 <h3 id="实验结果-1"><a href="#实验结果-1" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="/images/image-20200330212355474.png" alt="image-20200330212355474"></p>
 <blockquote>
 <p>Figure 2: FedMD improves the test accuracy of participating models beyond their baselines. A dashed line (on the left) represents the test accuracy of a model after full transfer learning with the public dataset and its own small private dataset. This baseline is our starting point and overlaps with the beginning of the corresponding learning curve. A dash-dot line (on the right) represents the would-be performance of a model if private datasets from all participants were declassified and made available to every participant of the group.</p>
